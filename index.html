@@ -17,18 +17,8 @@
             width: 89px;
         }
 
-        #Text1 {
-            width: 34px;
-        }
-
-        #Text2 {
-            width: 34px;
-        }
-
-        #Text3 {
-            width: 38px;
-        }
-
+    
+ 
         #Text4 {
             width: 38px;
         }
@@ -37,9 +27,7 @@
             width: 38px;
         }
 
-        #Text6 {
-            width: 34px;
-        }
+     
 
         #txtThrowCount {
             width: 32px;
@@ -72,6 +60,12 @@
         .redtext {
             color:red;
         }
+        
+        .maindiv{
+            padding-left:30px;
+            
+        }
+        
     </style>
     <script>
 
@@ -144,7 +138,7 @@
             <input type="hidden" name="__VIEWSTATE" id="__VIEWSTATE" value="y+2zIV7fwNDhKjre8EkmScNK5pniAkeW2c3K1fsbXwKrnvRr+RYWfPuoPkZ6Dll8Slc/FpjYE5ZavuPayt8YVvqaegUKDtOu1D8Hqz0XZQo=" />
         </div>
 
-        <div>
+        <div class="maindiv">
             Trips % <input id="txtTrip" type="text" value="15" />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
             Doubles % <input id="txtDbl" type="text" value="10" />&nbsp;&nbsp;
             <input id="txtThrowCount" type="text" value="0" class="hide" /><br />
@@ -165,7 +159,7 @@
                         <input id="txtStartCount" type="text" value="501" />
                     </td>
                     <td>
-                        <input id="Text4" type="text" /><input id="Text5" type="text" onblur="throwDarts();" />
+                        <input id="Text4" type="text" /><input id="Text5" type="text" />
                     </td>
                     <td>&nbsp;</td>
                 </tr>
