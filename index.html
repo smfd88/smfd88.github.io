@@ -13,18 +13,22 @@
         }
 
         #Button1 {
-            height: 62px;
-            width: 89px;
+            height: 25px;
+            width: 75px;
         }
 
     
  
         #Text4 {
-            width: 38px;
+            width: 50px;
+            height:35px;
+            font-size:18px;
         }
 
         #Text5 {
-            width: 38px;
+            width: 50px;
+            height:35px;
+            font-size:18px;
         }
 
      
@@ -64,6 +68,13 @@
         .maindiv{
             padding-left:30px;
             
+        }
+        
+        #divfix {
+       bottom: 0;
+       right: 0;
+       position: fixed;
+       z-index: 3000;
         }
         
     </style>
@@ -150,7 +161,7 @@
 
             <table><tr><td>3&nbsp;</td><td><div class="w50" id="dart3"></div></td><td><div class="w50" id="dart3exp"></div></td></tr></table>
             <br />
-            <input id="Button1" type="button" value="Throw" onclick="throwDarts();" /><br />
+            <br />
             &nbsp;<table class="auto-style1">
 
                 <tr>
@@ -158,8 +169,8 @@
                     <td>
                         <input id="txtStartCount" type="number" value="501" />
                     </td>
-                    <td>
-                        <input id="Text4" type="number" /><input id="Text5" type="number" />
+                    <td><div id="divfix">
+                        <input id="Text4" type="number" /><input id="Text5" type="number" /><input id="Button1" type="button" value="Throw" onclick="throwDarts();" /></div>
                     </td>
                     <td>&nbsp;</td>
                 </tr>
