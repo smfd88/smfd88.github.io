@@ -71,10 +71,10 @@
         }
         
         #divfix {
-       bottom: 0;
-       right: 0;
-       position: fixed;
-       z-index: 3000;
+               bottom: 50;
+               left: 30;
+               position: fixed;
+               z-index: 3000;
         }
         
     </style>
@@ -154,14 +154,8 @@
             Doubles % <input id="txtDbl" type="number" value="10" />&nbsp;&nbsp;
             <input id="txtThrowCount" type="text" value="0" class="hide" /><br />
             &nbsp;
-            <br />
-            <table><tr><td>1&nbsp;</td><td><div class="w50" id="dart1"></div></td><td><div class="w50" id="dart1exp"></div></td></tr></table>
-
-            <table><tr><td>2&nbsp;</td><td><div class="w50" id="dart2"></div></td><td><div class="w50" id="dart2exp"></div></td></tr></table>
-
-            <table><tr><td>3&nbsp;</td><td><div class="w50" id="dart3"></div></td><td><div class="w50" id="dart3exp"></div></td></tr></table>
-            <br />
-            <br />
+          
+         
             &nbsp;<table class="auto-style1">
 
                 <tr>
@@ -170,6 +164,12 @@
                         <input id="txtStartCount" type="number" value="501" />
                     </td>
                     <td><div id="divfix">
+                    <table><tr><td>1&nbsp;</td><td><div class="w50" id="dart1"></div></td><td><div class="w50" id="dart1exp"></div></td></tr></table>
+
+                    <table><tr><td>2&nbsp;</td><td><div class="w50" id="dart2"></div></td><td><div class="w50" id="dart2exp"></div></td></tr></table>
+
+                    <table><tr><td>3&nbsp;</td><td><div class="w50" id="dart3"></div></td><td><div class="w50" id="dart3exp"></div></td></tr></table>
+
                         <input id="Text4" type="number" /><input id="Text5" type="number" /><input id="Button1" type="button" value="Throw" onclick="throwDarts();" /></div>
                     </td>
                     <td>&nbsp;</td>
