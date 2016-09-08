@@ -1,0 +1,356 @@
+﻿
+
+<!DOCTYPE html>
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title>
+
+    </title>
+    <style type="text/css">
+        .auto-style1 {
+            width: 250px;
+        }
+
+        #Button1 {
+            height: 62px;
+            width: 89px;
+        }
+
+        #Text1 {
+            width: 34px;
+        }
+
+        #Text2 {
+            width: 34px;
+        }
+
+        #Text3 {
+            width: 38px;
+        }
+
+        #Text4 {
+            width: 38px;
+        }
+
+        #Text5 {
+            width: 38px;
+        }
+
+        #Text6 {
+            width: 34px;
+        }
+
+        #txtThrowCount {
+            width: 32px;
+        }
+
+        #txtTrip {
+            width: 28px;
+        }
+
+        #txtDbl {
+            width: 30px;
+        }
+
+        #txtStartCount {
+            width: 43px;
+        }
+
+        .hide {
+            display: none;
+        }
+
+        .show {
+            display:;
+        }
+
+        .w50 {
+            width: 20px;
+        }
+    </style>
+    <script>
+
+        function throwDarts() {
+            var prevEntrdCount = document.getElementById('Text4').value;
+            var prevEntrdScore = document.getElementById('Text5').value;
+            document.getElementById('Text4').value = '';
+            document.getElementById('Text5').value = '';
+
+            var thrw = document.getElementById('txtThrowCount');
+            thrw.value = parseInt(thrw.value) + 1;
+
+            var dblpct = document.getElementById('txtDbl').value;
+            var trippct = document.getElementById('txtTrip').value;
+            var xpn = 1;
+            var ttlcnt = 0;
+            for(var i=1;i<=3;i++)
+            {
+                xpn = 1;
+                var dbtr = document.getElementById(('dart' + i + 'exp'));
+                dbtr.innerHTML = '';
+                min = Math.ceil(20);
+                max = Math.floor(1);
+                var sdf = Math.floor(Math.random() * (max - min + 1)) + min;
+                document.getElementById(('dart' + i)).innerHTML = sdf;
+
+                var dbl =  Math.random() * 100;
+                var trip = Math.random() * 100;
+                if (trip < trippct ) {
+                    dbtr.innerHTML = '3X';
+                    xpn = 3;
+                }
+                if (dbtr.innerHTML == '' && dbl < dblpct) {
+                    dbtr.innerHTML = '2X';
+                    xpn = 2;
+                }
+                ttlcnt = ttlcnt + (sdf * xpn)   ;
+
+                //alert(sdf + " - " + xpn);
+            }
+
+            var prevthrw = (parseInt(thrw.value) - 1);
+            var startScore = 0;
+            if (thrw.value == '1') {
+                startScore = document.getElementById('txtStartCount').value;
+            } else {
+                startScore = document.getElementById('throw' + prevthrw + 'score').innerHTML;
+            }
+
+            document.getElementById('throw' + thrw.value + 'count').innerHTML = ttlcnt;
+            document.getElementById('throw' + thrw.value + 'score').innerHTML = parseInt(startScore) - parseInt(ttlcnt);
+
+            if (prevthrw != '0') {
+                document.getElementById('throw' + prevthrw + 'count').className = 'show';
+                document.getElementById('throw' + prevthrw + 'score').className = 'show';
+
+                if (prevEntrdCount != document.getElementById('throw' + prevthrw + 'count').innerHTML ||
+                prevEntrdScore != document.getElementById('throw' + prevthrw + 'score').innerHTML ) {
+                    document.getElementById('throw' + prevthrw + 'rslt').innerHTML = prevEntrdCount + '   '  + prevEntrdScore;
+                }
+            }
+            document.getElementById('Text4').focus();
+        }
+    </script>
+
+</head>
+<body>
+    <form method="post" action="./WebForm1" id="form1">
+        <div class="aspNetHidden">
+            <input type="hidden" name="__VIEWSTATE" id="__VIEWSTATE" value="y+2zIV7fwNDhKjre8EkmScNK5pniAkeW2c3K1fsbXwKrnvRr+RYWfPuoPkZ6Dll8Slc/FpjYE5ZavuPayt8YVvqaegUKDtOu1D8Hqz0XZQo=" />
+        </div>
+
+        <div>
+            Trips % <input id="txtTrip" type="text" value="15" />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+            Doubles % <input id="txtDbl" type="text" value="10" />&nbsp;&nbsp;
+            <input id="txtThrowCount" type="text" value="0" class="hide" /><br />
+            &nbsp;
+            <br />
+            <table><tr><td>1&nbsp;</td><td><div class="w50" id="dart1"></div></td><td><div class="w50" id="dart1exp"></div></td></tr></table>
+
+            <table><tr><td>2&nbsp;</td><td><div class="w50" id="dart2"></div></td><td><div class="w50" id="dart2exp"></div></td></tr></table>
+
+            <table><tr><td>3&nbsp;</td><td><div class="w50" id="dart3"></div></td><td><div class="w50" id="dart3exp"></div></td></tr></table>
+            <br />
+            <input id="Button1" type="button" value="Throw" onclick="throwDarts();" /><br />
+            &nbsp;<table class="auto-style1">
+
+                <tr>
+                    <td>start</td>
+                    <td>
+                        <input id="txtStartCount" type="text" value="501" />
+                    </td>
+                    <td>
+                        <input id="Text4" type="text" /><input id="Text5" type="text" onblur="throwDarts();" />
+                    </td>
+                    <td>&nbsp;</td>
+                </tr>
+                <tr>
+                    <td>
+                        <div class="hide" id="throw1count">
+                        </div>
+                    </td>
+                    <td>
+                        <div class="hide" id="throw1score">
+                        </div>
+                    </td>
+                    <td>
+                        <div id="throw1rslt"></div>
+                    </td>
+                    <td>&nbsp;</td>
+                </tr>
+                <tr>
+                    <td>
+                        <div class="hide" id="throw2count">
+                        </div>
+                    </td>
+                    <td>
+                        <div class="hide" id="throw2score">
+                        </div>
+                    </td>
+                    <td><div id="throw2rslt"></div></td>
+                    <td>&nbsp;</td>
+                </tr>
+                <tr>
+                    <td>
+                        <div class="hide" id="throw3count">
+                        </div>
+                    </td>
+                    <td>
+                        <div class="hide" id="throw3score">
+                        </div>
+                    </td>
+                    <td><div id="throw3rslt"></div></td>
+                    <td>&nbsp;</td>
+                </tr>
+                <tr>
+                    <td>
+                        <div class="hide" id="throw4count">
+                        </div>
+                    </td>
+                    <td>
+                        <div class="hide" id="throw4score">
+                        </div>
+                    </td>
+                    <td><div id="throw4rslt"></div></td>
+                    <td>&nbsp;</td>
+                </tr>
+                <tr>
+                    <td>
+                        <div class="hide" id="throw5count">
+                        </div>
+                    </td>
+                    <td>
+                        <div class="hide" id="throw5score">
+                        </div>
+                    </td>
+                    <td><div id="throw5rslt"></div></td>
+                    <td>&nbsp;</td>
+                </tr>
+                <tr>
+                    <td>
+                        <div class="hide" id="throw6count">
+                        </div>
+                    </td>
+                    <td>
+                        <div class="hide" id="throw6score">
+                        </div>
+                    </td>
+                    <td><div id="throw6rslt"></div></td>
+                    <td>&nbsp;</td>
+                </tr>
+                <tr>
+                    <td>
+                        <div class="hide" id="throw7count">
+                        </div>
+                    </td>
+                    <td>
+                        <div class="hide" id="throw7score">
+                        </div>
+                    </td>
+                    <td><div id="throw7rslt"></div></td>
+                    <td>&nbsp;</td>
+                </tr>
+                <tr>
+                    <td>
+                        <div class="hide" id="throw8count">
+                        </div>
+                    </td>
+                    <td>
+                        <div class="hide" id="throw8score">
+                        </div>
+                    </td>
+                    <td><div id="throw8rslt"></div></td>
+                    <td>&nbsp;</td>
+                </tr>
+                <tr>
+                    <td>
+                        <div class="hide" id="throw9count">
+                        </div>
+                    </td>
+                    <td>
+                        <div class="hide" id="throw9score">
+                        </div>
+                    </td>
+                    <td><div id="throw9rslt"></div></td>
+                    <td>&nbsp;</td>
+                </tr>
+                <tr>
+                    <td>
+                        <div class="hide" id="throw10count">
+                        </div>
+                    </td>
+                    <td>
+                        <div class="hide" id="throw10score">
+                        </div>
+                    </td>
+                    <td><div id="throw10rslt"></div></td>
+                    <td>&nbsp;</td>
+                </tr>
+                <tr>
+                    <td>
+                        <div class="hide" id="throw11count">
+                        </div>
+                    </td>
+                    <td>
+                        <div class="hide" id="throw11score">
+                        </div>
+                    </td>
+                    <td><div id="throw11rslt"></div></td>
+                    <td>&nbsp;</td>
+                </tr>
+                <tr>
+                    <td>
+                        <div class="hide" id="throw12count">
+                        </div>
+                    </td>
+                    <td>
+                        <div class="hide" id="throw12score">
+                        </div>
+                    </td>
+                    <td><div id="throw12rslt"></div></td>
+                    <td>&nbsp;</td>
+                </tr>
+                <tr>
+                    <td>&nbsp;</td>
+                    <td>&nbsp;</td>
+                    <td>&nbsp;</td>
+                    <td>&nbsp;</td>
+                </tr>
+                <tr>
+                    <td>&nbsp;</td>
+                    <td>&nbsp;</td>
+                    <td>&nbsp;</td>
+                    <td>&nbsp;</td>
+                </tr>
+                <tr>
+                    <td>&nbsp;</td>
+                    <td>&nbsp;</td>
+                    <td>&nbsp;</td>
+                    <td>&nbsp;</td>
+                </tr>
+                <tr>
+                    <td>&nbsp;</td>
+                    <td>&nbsp;</td>
+                    <td>&nbsp;</td>
+                    <td>&nbsp;</td>
+                </tr>
+            </table>
+
+        </div>
+
+        <div class="aspNetHidden">
+
+            <input type="hidden" name="__VIEWSTATEGENERATOR" id="__VIEWSTATEGENERATOR" value="B6E7D48B" />
+        </div>
+    </form>
+
+    <!-- Visual Studio Browser Link -->
+    <script type="application/json" id="__browserLink_initializationData">
+        {"appName":"Internet Explorer","requestId":"6be049bb902f45f1aa803a2a0abedf5b"}
+    </script>
+    <script type="text/javascript" src="http://localhost:58169/1dd78b073c47418287a02f32751b64ad/browserLink" async="async"></script>
+    <!-- End Browser Link -->
+
+</body>
+</html>
