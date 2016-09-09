@@ -1,11 +1,7 @@
-﻿
-
 <!DOCTYPE html>
-
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
-    <title>
-
+    <title>Chalking Practice
     </title>
     <style type="text/css">
         .auto-style1 {
@@ -17,21 +13,21 @@
             width: 75px;
         }
 
-    
- 
+
+
         #Text4 {
             width: 50px;
-            height:35px;
-            font-size:18px;
+            height: 35px;
+            font-size: 18px;
         }
 
         #Text5 {
             width: 50px;
-            height:35px;
-            font-size:18px;
+            height: 35px;
+            font-size: 18px;
         }
 
-     
+
 
         #txtThrowCount {
             width: 32px;
@@ -57,28 +53,47 @@
             display:;
         }
 
-        .w50 {
+        .strike {
+            color:lightgray; 
+        }
+
+        .w20 {
             width: 20px;
             font-size: 1.1em;
             font-weight: 600;
         }
 
+        .bld {
+        
+            font-size: 1.3em;
+            font-weight: 400;
+        }
+        
+        .exp {
+            width: 20px;
+            font-size: 1.1em;
+            font-weight: 600;
+            color:maroon
+        }
         .redtext {
-            color:red;
+            color: red;
         }
-        
-        .maindiv{
-            padding-left:30px;
-            
+
+        .dart {
+              width: 50px;
+            color: navy;
         }
-        
+
+        .maindiv {
+            padding-left: 30px;
+        }
+
         #divfix {
-               bottom: 0;
-               right: 0;
-               position: relative;
-               z-index: 3000;
+            bottom: 0;
+            right: 0;
+            position: relative;
+            z-index: 3000;
         }
-        
     </style>
     <script>
 
@@ -124,6 +139,8 @@
             var startScore = 0;
             if (thrw.value == '1') {
                 startScore = document.getElementById('txtStartCount').value;
+                var ts = Math.floor(Date.now() / 1000);
+                document.getElementById('txtStartTime').value = ts ;
             } else {
                 startScore = document.getElementById('throw' + prevthrw + 'score').innerHTML;
             }
@@ -134,212 +151,321 @@
             if (prevthrw != '0') {
                 document.getElementById('row' + prevthrw + '').className = 'show';
                 //document.getElementById('throw' + prevthrw + 'score').className = 'show';
+                document.getElementById('throw' + prevthrw + 'count').className = "strike";
+                try{  document.getElementById('throw' + (prevthrw-1) + 'score').className = "bld strike"; }catch(err){}
 
-                if (prevEntrdCount != document.getElementById('throw' + prevthrw + 'count').innerHTML ||
-                prevEntrdScore != document.getElementById('throw' + prevthrw + 'score').innerHTML ) {
-                    document.getElementById('throw' + prevthrw + 'rslt').innerHTML = prevEntrdCount + '   '  + prevEntrdScore;
+                if (prevEntrdCount != document.getElementById('throw' + prevthrw + 'count').innerHTML)
+                {
+                    if (prevEntrdCount == "") { prevEntrdCount = "blank"; }
+                    document.getElementById('throw' + prevthrw + 'rslt').innerHTML = prevEntrdCount + '  ';
                 }
+
+                if (prevEntrdScore != document.getElementById('throw' + prevthrw + 'score').innerHTML) {
+                    if (prevEntrdScore == "") { prevEntrdScore = "blank"; }
+                    document.getElementById('throw' + prevthrw + 'rslt').innerHTML += prevEntrdScore   ;
+                }
+                var ts = Math.floor(Date.now() / 1000);
+                var oldtime = document.getElementById('txtStartTime').value; 
+                var timediff = parseInt(ts) - parseInt(oldtime);
+                document.getElementById('throw' + prevthrw + 'time').innerHTML =   timediff + ' secs';
+                document.getElementById('txtStartTime').value = ts;
+
+                var prevTT = document.getElementById('totalTime').innerHTML;
+                var newTT = parseInt(prevTT) + parseInt(timediff);
+                document.getElementById('totalTime').innerHTML = newTT;
+
             }
             document.getElementById('Text4').focus();
         }
     </script>
-
 </head>
 <body>
-    <form method="post" action="./WebForm1" id="form1">
-        <div class="aspNetHidden">
-            <input type="hidden" name="__VIEWSTATE" id="__VIEWSTATE" value="y+2zIV7fwNDhKjre8EkmScNK5pniAkeW2c3K1fsbXwKrnvRr+RYWfPuoPkZ6Dll8Slc/FpjYE5ZavuPayt8YVvqaegUKDtOu1D8Hqz0XZQo=" />
-        </div>
-
+    <form >
+ 
         <div class="maindiv">
             Trips % <input id="txtTrip" type="number" value="15" />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
             Doubles % <input id="txtDbl" type="number" value="10" />&nbsp;&nbsp;
             <input id="txtThrowCount" type="text" value="0" class="hide" /><br />
+            <input id="txtStartTime" type="hidden" value="" />
             &nbsp;
-          
-         
-            &nbsp;<table class="auto-style1">
 
+
+            &nbsp;<table class="auto-style1">
                 <tr>
                     <td>start</td>
                     <td>
                         <input id="txtStartCount" type="number" value="501" />
                     </td>
-                    <td>
-                 
-                    </td>
+                    <td></td>
                     <td>&nbsp;</td>
                 </tr>
-                <tr id="row1"  class="hide">
+                <tr id="row1" class="hide">
                     <td>
-                        <div  id="throw1count">
+                        <div id="throw1count">
                         </div>
                     </td>
                     <td>
-                        <div id="throw1score">
+                        <div  class="bld" id="throw1score">
                         </div>
                     </td>
                     <td>
-                        <div class="redtext"  id="throw1rslt"></divclass="hide">
+                        <div class="redtext" id="throw1rslt"></divclass="hide">
                     </td>
-                    <td>&nbsp;</td>
+                    <td><div id="throw1time"></div></td>
                 </tr>
-                <tr id="row2"  class="hide">
+                <tr id="row2" class="hide">
                     <td>
-                        <div  id="throw2count">
+                        <div id="throw2count">
                         </div>
                     </td>
                     <td>
-                        <div  id="throw2score">
+                        <div class="bld"  id="throw2score">
                         </div>
                     </td>
-                    <td><div  class="redtext" id="throw2rslt"></div></td>
-                    <td>&nbsp;</td>
+                    <td><div class="redtext" id="throw2rslt"></div></td>
+                    <td><div id="throw2time"></div></td>
                 </tr>
-                <tr id="row3"  class="hide" >
+                <tr id="row3" class="hide">
                     <td>
                         <div id="throw3count">
                         </div>
                     </td>
                     <td>
-                        <div  id="throw3score">
+                        <div class="bld"  id="throw3score">
                         </div>
                     </td>
-                    <td><div  class="redtext" id="throw3rslt"></div></td>
-                    <td>&nbsp;</td>
+                    <td><div class="redtext" id="throw3rslt"></div></td>
+                    <td><div id="throw3time"></div></td>
                 </tr>
-                <tr id="row4"  class="hide">
+                <tr id="row4" class="hide">
                     <td>
-                        <div  id="throw4count">
+                        <div id="throw4count">
                         </div>
                     </td>
                     <td>
-                        <div id="throw4score">
+                        <div class="bld"  id="throw4score">
                         </div>
                     </td>
-                    <td><div class="redtext"  id="throw4rslt"></div></td>
-                    <td>&nbsp;</td>
+                    <td><div class="redtext" id="throw4rslt"></div></td>
+                    <td><div id="throw4time"></div></td>
                 </tr>
-                <tr id="row5"  class="hide">
+                <tr id="row5" class="hide">
                     <td>
                         <div id="throw5count">
                         </div>
                     </td>
                     <td>
-                        <div id="throw5score">
+                        <div  class="bld" id="throw5score">
                         </div>
                     </td>
-                    <td><div  class="redtext" id="throw5rslt"></div></td>
-                    <td>&nbsp;</td>
+                    <td><div class="redtext" id="throw5rslt"></div></td>
+                    <td><div id="throw5time"></div></td>
                 </tr>
-                <tr id="row6"  class="hide">
+                <tr id="row6" class="hide">
                     <td>
                         <div id="throw6count">
                         </div>
                     </td>
                     <td>
-                        <div id="throw6score">
+                        <div class="bld"  id="throw6score">
                         </div>
                     </td>
-                    <td><div  class="redtext" id="throw6rslt"></div></td>
-                    <td>&nbsp;</td>
+                    <td><div class="redtext" id="throw6rslt"></div></td>
+                    <td><div id="throw6time"></div></td>
                 </tr>
-                <tr  id="row7"  class="hide">
+                <tr id="row7" class="hide">
                     <td>
-                        <div  id="throw7count">
+                        <div id="throw7count">
                         </div>
                     </td>
                     <td>
-                        <div id="throw7score">
+                        <div  class="bld" id="throw7score">
                         </div>
                     </td>
-                    <td><div  class="redtext" id="throw7rslt"></div></td>
-                    <td>&nbsp;</td>
+                    <td><div class="redtext" id="throw7rslt"></div></td>
+                    <td><div id="throw7time"></div></td>
                 </tr>
                 <tr>
-                    <td id="row8"  class="hide">
+                    <td id="row8" class="hide">
                         <div id="throw8count">
                         </div>
                     </td>
                     <td>
-                        <div  id="throw8score">
+                        <div class="bld"  id="throw8score">
                         </div>
                     </td>
-                    <td><div class="redtext"  id="throw8rslt"></div></td>
-                    <td>&nbsp;</td>
+                    <td><div class="redtext" id="throw8rslt"></div></td>
+                    <td><div id="throw8time"></div></td>
                 </tr>
                 <tr>
-                    <td id="row9"  class="hide">
-                        <div  id="throw9count">
+                    <td id="row9" class="hide">
+                        <div id="throw9count">
                         </div>
                     </td>
                     <td>
-                        <div  id="throw9score">
+                        <div class="bld"  id="throw9score">
                         </div>
                     </td>
-                    <td><div  class="redtext" id="throw9rslt"></div></td>
-                    <td>&nbsp;</td>
+                    <td><div class="redtext" id="throw9rslt"></div></td>
+                    <td><div id="throw9time"></div></td>
                 </tr>
-                <tr id="row10"  class="hide">
+                <tr id="row10" class="hide">
                     <td>
                         <div id="throw10count">
                         </div>
                     </td>
                     <td>
-                        <div id="throw10score">
+                        <div class="bld"  id="throw10score">
                         </div>
                     </td>
-                    <td><div  class="redtext" id="throw10rslt"></div></td>
-                    <td>&nbsp;</td>
+                    <td><div class="redtext" id="throw10rslt"></div></td>
+                    <td><div id="throw10time"></div></td>
                 </tr>
-                <tr id="row11"  class="hide">
+                <tr id="row11" class="hide">
                     <td>
                         <div id="throw11count">
                         </div>
                     </td>
                     <td>
-                        <div id="throw11score">
+                        <div  class="bld" id="throw11score">
                         </div>
                     </td>
-                    <td><div class="redtext"  id="throw11rslt"></div></td>
-                    <td>&nbsp;</td>
+                    <td><div class="redtext" id="throw11rslt"></div></td>
+                    <td><div id="throw11time"></div></td>
                 </tr>
-                <tr id="row12"  class="hide">
+                <tr id="row12" class="hide">
                     <td>
-                        <div  id="throw12count">
+                        <div id="throw12count">
                         </div>
                     </td>
                     <td>
-                        <div id="throw12score">
+                        <div  class="bld" id="throw12score">
                         </div>
                     </td>
-                    <td><div class="redtext"  id="throw12rslt"></div></td>
-                    <td>&nbsp;</td>
+                    <td><div class="redtext" id="throw12rslt"></div></td>
+                    <td><div id="throw12time"></div></td>
                 </tr>
+                <tr id="row13" class="hide">
+                    <td>
+                        <div id="throw13count">
+                        </div>
+                    </td>
+                    <td>
+                        <div class="bld" id="throw13score">
+                        </div>
+                    </td>
+                    <td><div class="redtext" id="throw13rslt"></div></td>
+                    <td><div id="throw13time"></div></td>
+                </tr>
+                <tr id="row14" class="hide">
+                    <td>
+                        <div id="throw14count">
+                        </div>
+                    </td>
+                    <td>
+                        <div class="bld" id="throw14score">
+                        </div>
+                    </td>
+                    <td><div class="redtext" id="throw14rslt"></div></td>
+                    <td><div id="throw14time"></div></td>
+                </tr>
+                <tr id="row15" class="hide">
+                    <td>
+                        <div id="throw15count">
+                        </div>
+                    </td>
+                    <td>
+                        <div class="bld" id="throw15score">
+                        </div>
+                    </td>
+                    <td><div class="redtext" id="throw15rslt"></div></td>
+                    <td><div id="throw15time"></div></td>
+                </tr>
+                            <tr id="row16" class="hide">
+                    <td>
+                        <div id="throw16count">
+                        </div>
+                    </td>
+                    <td>
+                        <div class="bld" id="throw16score">
+                        </div>
+                    </td>
+                    <td><div class="redtext" id="throw16rslt"></div></td>
+                    <td><div id="throw16time"></div></td>
+                </tr>
+                <tr id="row17" class="hide">
+                    <td>
+                        <div id="throw17count">
+                        </div>
+                    </td>
+                    <td>
+                        <div class="bld" id="throw17score">
+                        </div>
+                    </td>
+                    <td><div class="redtext" id="throw17rslt"></div></td>
+                    <td><div id="throw17time"></div></td>
+                </tr>
+                <tr id="row18" class="hide">
+                    <td>
+                        <div id="throw18count">
+                        </div>
+                    </td>
+                    <td>
+                        <div class="bld" id="throw18score">
+                        </div>
+                    </td>
+                    <td><div class="redtext" id="throw18rslt"></div></td>
+                    <td><div id="throw18time"></div></td>
+                </tr>
+                      <tr id="row19" class="hide">
+                          <td>
+                              <div id="throw19count">
+                              </div>
+                          </td>
+                          <td>
+                              <div class="bld" id="throw19score">
+                              </div>
+                          </td>
+                          <td><div class="redtext" id="throw19rslt"></div></td>
+                          <td><div id="throw19time"></div></td>
+                      </tr>
+                      <tr id="row20" class="hide">
+                          <td>
+                              <div id="throw20count">
+                              </div>
+                          </td>
+                          <td>
+                              <div class="bld" id="throw20score">
+                              </div>
+                          </td>
+                          <td><div class="redtext" id="throw20rslt"></div></td>
+                          <td><div id="throw20time"></div></td>
+                      </tr>
             </table>
-   <div id="divfix">
-                        <table style="width:300px"><tr><td>dart 1&nbsp;</td><td><div class="w50" id="dart1"></div></td><td><div class="w50" id="dart1exp"></div></td> 
-
-                        <td>dart 2&nbsp;</td><td><div class="w50" id="dart2"></div></td><td><div class="w50" id="dart2exp"></div></td>
-
-                        <td>dart 3&nbsp;</td><td><div class="w50" id="dart3"></div></td><td><div class="w50" id="dart3exp"></div></td></tr></table>
-
-                        <input id="Text4" type="number" /><input id="Text5" type="number" /><input id="Button1" type="button" value="Throw" onclick="throwDarts();" />
-                    </div>
+            <div id="divfix">
+                <table style="width:250px">
+                    <tr>
+                        <td class="dart">1st:</td>
+                        <td><div class="w20" id="dart1"></div></td>
+                        <td><div class="exp" id="dart1exp"></div></td>
+                        <td class="dart">2nd:</td>
+                        <td><div class="w20" id="dart2"></div></td>
+                        <td><div class="exp" id="dart2exp"></div></td>
+                        <td class="dart">3rd:</td>
+                        <td><div class="w20" id="dart3"></div></td>
+                        <td><div class="exp" id="dart3exp"></div></td>
+                    </tr>
+                </table>
+                <input id="Text4" type="number" /> &nbsp; &nbsp;
+                <input id="Text5" type="number" /> &nbsp; &nbsp;
+                <input id="Button1" type="button" value="GO" onclick="throwDarts();" />
+               
+                <br />&nbsp; &nbsp;Total: <span class="w20" id="totalTime">0</span>secs
+                <br /> <br /><div id="clearAll" style="color:maroon;" onclick="location.reload();" >Clear</div>
+            </div>
         </div>
-
-        <div class="aspNetHidden">
-
-            <input type="hidden" name="__VIEWSTATEGENERATOR" id="__VIEWSTATEGENERATOR" value="B6E7D48B" />
-        </div>
+      
     </form>
-
-    <!-- Visual Studio Browser Link -->
-    <script type="application/json" id="__browserLink_initializationData">
-        {"appName":"Internet Explorer","requestId":"6be049bb902f45f1aa803a2a0abedf5b"}
-    </script>
-    <script type="text/javascript" src="http://localhost:58169/1dd78b073c47418287a02f32751b64ad/browserLink" async="async"></script>
-    <!-- End Browser Link -->
-
+ 
 </body>
 </html>
