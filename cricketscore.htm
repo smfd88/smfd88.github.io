@@ -1,0 +1,456 @@
+<html>
+<head>
+<title>dartboard</title>
+<meta HTTP-EQUIV="Content-Type" CONTENT="text/html; charset=iso-8859-1">
+    <style type="text/css">
+        .style1
+        {
+            height: 23px;
+        }
+        .style2
+        {
+            font-size: 60pt;
+            text-align:center;
+        }
+        .style3
+        {
+            text-align:center;
+            height: 23px;
+            font-size: xx-large;
+        }
+        .style4
+        {
+         
+            font-size:50pt;
+            color:Navy;
+            text-align:center;
+        }
+        .style5
+        {
+            font-size: large;
+            text-align:center;
+            background-color: #CCFF99;
+        }        
+        
+        #Text1
+        {
+            width: 49px;
+        }
+        #Text2
+        {
+            width: 57px;
+        }
+        #Div2_pts
+        {
+            color: #FF0000;
+        }
+        #Div1_pts
+        {
+            color: #FF0000;
+        }
+        #Div3_pts
+        {
+            color: #FF0000;
+        }
+
+  
+        #Text3
+        {
+            width: 57px;
+        }
+        </style>
+
+    <script language="javascript" type="text/javascript">
+        function HitIt(amt) {
+            var hit = "Div" + document.getElementById('Hidden1').value + "_" + amt;
+            var p1name = document.getElementById(hit);
+            if (p1name.innerHTML == "") {
+                p1name.innerHTML = "/";
+            }
+            else if (p1name.innerHTML == "/") {
+                p1name.innerHTML = "X";
+            }
+            else if (p1name.innerHTML == "X") {
+                p1name.innerHTML = "O";
+            }
+            else if (p1name.innerHTML == "O") {
+                checkOtherPlayers(amt);
+            }
+
+        }
+
+
+        function checkOtherPlayers(amt) {
+
+            var threeppl = document.getElementById('Checkbox1');
+            var thisplyr = document.getElementById('Hidden1').value;
+
+
+            if (threeppl.checked) {
+
+
+
+
+                for (var i = 1; i <= 3; i++) {
+                    if (thisplyr != i) {
+
+                        var hit = "Div" + i + "_" + amt;
+                        var pname = document.getElementById(hit);
+                        var ppts = document.getElementById(("Div" + i + "_pts"));
+
+                        if (pname.innerHTML != "O") {
+                            ppts.innerHTML = parseInt(ppts.innerHTML) + parseInt(amt);
+                        }
+
+                    }
+                }
+
+
+
+
+            } else {
+
+                for (var i = 1; i <= 2; i++) {
+                    if (thisplyr != i) {
+
+                        var hit = "Div" + i + "_" + amt;
+                        var pname = document.getElementById(hit);
+                        var ppts = document.getElementById(("Div" + thisplyr + "_pts"));
+
+                        if (pname.innerHTML != "O") {
+                            ppts.innerHTML = parseInt(ppts.innerHTML) + parseInt(amt);
+                        }
+
+                    }
+                }
+
+
+            }
+
+
+        }
+
+
+
+
+
+        function threePlyrsCheck() {
+            var cb3 = document.getElementById('CheckBox1');
+            var pts3 = document.getElementById('Div3_pts');
+            var rbl3 = document.getElementById('rbl3');
+            var txt3 = document.getElementById('Text3');
+
+            if (cb3.checked) {
+
+                pts3.style.display = "";
+                rbl3.style.display = "";
+                txt3.style.display = "";
+
+
+            } else {
+
+                pts3.style.display = "none";
+                rbl3.style.display = "none";
+                txt3.style.display = "none";
+
+
+            }
+
+
+        }
+
+
+
+
+        function rblclicked(v) {
+
+            document.getElementById('Hidden1').value = v;
+
+
+            for (var j = 1; j <= 3; j++) {
+                var clnm = "Style4";
+                if (v == j) {
+                    clnm = "Style5";
+                }
+
+                for (var i = 1; i <= 8; i++) {
+                    var tdnm = "td" + j + "_" + i;
+                    var td = document.getElementById(tdnm);
+                    td.className = clnm;
+                }
+
+
+            }
+
+
+
+        }
+
+
+        function areaClick(amt) {
+            var thisplyr = document.getElementById('Hidden1').value;
+            var hit = "Div" + thisplyr + "_" + amt;
+            var p1name = document.getElementById(hit);
+            var plyrpts = document.getElementById("Div" + thisplyr + "_pts").innerHTML;
+
+            if (p1name.innerHTML == "O" && plyrpts >= amt) {
+                checkOtherPlayersSubtract(amt);
+            }
+            else if (p1name.innerHTML == "O") {
+                p1name.innerHTML = "X";
+            }
+            else if (p1name.innerHTML == "X") {
+                p1name.innerHTML = "/";
+            }
+            else if (p1name.innerHTML == "/") {
+                p1name.innerHTML = "";
+            }
+
+
+        }
+
+        function checkOtherPlayersSubtract(amt) {
+
+            var threeppl = document.getElementById('Checkbox1');
+            var thisplyr = document.getElementById('Hidden1').value;
+
+
+            if (threeppl.checked) {
+
+                for (var i = 1; i <= 3; i++) {
+                    if (thisplyr != i) {
+
+                        var hit = "Div" + i + "_" + amt;
+                        var pname = document.getElementById(hit);
+                        var ppts = document.getElementById(("Div" + i + "_pts"));
+
+                        if (pname.innerHTML != "O") {
+                            ppts.innerHTML = parseInt(ppts.innerHTML) - parseInt(amt);
+                        }
+
+                    }
+                }
+
+
+
+
+            } else {
+
+                for (var i = 1; i <= 2; i++) {
+                    if (thisplyr != i) {
+
+                        var hit = "Div" + i + "_" + amt;
+                        var pname = document.getElementById(hit);
+                        var ppts = document.getElementById(("Div" + thisplyr + "_pts"));
+
+                        if (pname.innerHTML != "O") {
+                            ppts.innerHTML = parseInt(ppts.innerHTML) - parseInt(amt);
+                        }
+
+                    }
+                }
+
+
+            }
+
+
+        }
+
+
+        function resetAll() {
+            var alldivs = document.getElementsByTagName("div");
+            for (var i = 0; i < alldivs.length; i++) {
+                if (alldivs[i].id.indexOf("Div") > -1) {
+
+                    if (alldivs[i].id.indexOf("pts") > 0) {
+                        alldivs[i].innerHTML = "O";
+                    } else {
+                        alldivs[i].innerHTML = "";
+                    }
+
+
+                }
+
+            }
+
+        }
+
+        function resetPoints() {
+            var alldivs = document.getElementsByTagName("div");
+            for (var i = 0; i < alldivs.length; i++) {
+                if (alldivs[i].id.indexOf("Div") > -1) {
+
+                    if (alldivs[i].id.indexOf("pts") > 0) {
+                        alldivs[i].innerHTML = "O";
+                    }
+
+
+                }
+
+            }
+
+        }
+
+    </script>
+</head>
+<body onload="rblclicked(1);" BGCOLOR=#FFFFFF LEFTMARGIN=0 TOPMARGIN=0 MARGINWIDTH=0 MARGINHEIGHT=0>
+ <p>
+        <input id="Hidden1" type="hidden" value="1" />
+        <table style="width:500px; height:800px">
+            <tr>
+                <td class="style1">
+                    &nbsp;</td>
+                <td class="style1">
+                    <input 
+                        id="Text1" type="text" /></td>
+                <td align="center" class="style1">
+                    &nbsp;</td>
+                <td class="style1">
+                    <input 
+                        id="Text2" type="text" /></td>
+                <td class="style1">
+                    <input 
+                        id="Text3"  type="text" /></td>
+            </tr>
+            <tr>
+                <td class="style1">
+                    &nbsp;</td>
+                <td class="style1">
+                    &nbsp;</td>
+                <td align="center" class="style1">
+                    &nbsp;</td>
+                <td class="style1">
+                    &nbsp;</td>
+                <td class="style1">
+                    <input id="Checkbox1" type="checkbox" onclick="threePlyrsCheck();" />3 ppl</td>
+            </tr>
+            <tr>
+                <td class="style1">
+                    &nbsp;</td>
+                <td class="style1">
+                    &nbsp;</td>
+                <td align="center" class="style1">
+                    &nbsp;</td>
+                <td class="style1">
+                    &nbsp;</td>
+                <td class="style1">
+                    &nbsp;</td>
+            </tr>
+            <tr>
+                <td class="style1">
+                    &nbsp;</td>
+                <td class="style1" align="center">
+        <input  name="R1" type="radio" value="1" checked="checked" onclick="rblclicked(1);"/></td>
+                <td align="center" class="style1">
+                    &nbsp;</td>
+                <td class="style1" align="center">
+                    <input name="R1" type="radio" value="2" onclick="rblclicked(2);"/></td>
+                <td class="style1" align="center">
+                    <input id="rbl3"  name="R1" type="radio" value="3"  onclick="rblclicked(3);"/></td>
+            </tr>
+            <tr>
+                <td>
+                   </td>
+                <td id="td1_1" class="style4" >
+                    <div onclick="areaClick(20);"  class="style4" id="Div1_20"></div></td>
+                <td  onclick="HitIt(20);"  class="style2">
+                    20</td>
+                <td  id="td2_1" class="style4"  >
+                    <div  onclick="areaClick(20);"   class="style4" id="Div2_20"></div></td>
+                <td  id="td3_1" class="style4" >
+                    <div onclick="areaClick(20);"   class="style4" id="Div3_20"></div>
+                    </td>
+            </tr>
+            <tr>
+                <td>
+                    &nbsp;</td>
+                <td id="td1_2" class="style4">
+                    <div onclick="areaClick(19);"  class="style4"  id="Div1_19"></div></td>
+                <td onclick="HitIt(19);"  class="style2">
+                    19</td>
+                <td   id="td2_2"  class="style4">
+                    <div onclick="areaClick(19);"  class="style4"  id="Div2_19"></div></td>
+                <td  id="td3_2" class="style4" >
+                    <div onclick="areaClick(19);"  class="style4"  id="Div3_19"></div></td>
+            </tr>
+            <tr>
+                <td>
+                    &nbsp;</td>
+                <td  id="td1_3" class="style4">
+                  <div onclick="areaClick(18);"   class="style4" id="Div1_18"></div></td>
+                <td onclick="HitIt(18);"  class="style2">
+                    18</td>
+                <td   id="td2_3"  class="style4">
+                    <div onclick="areaClick(18);"  class="style4" id="Div2_18"></div></td>
+                <td  id="td3_3" class="style4">
+                    <div onclick="areaClick(18);"  class="style4"  id="Div3_18"></div></td>
+            </tr>
+            <tr>
+                <td>
+                    &nbsp;</td>
+                <td  id="td1_4"  class="style4">
+                    <div onclick="areaClick(17);"  class="style4"  id="Div1_17"></div></td>
+                <td onclick="HitIt(17);"   class="style2">
+                    17</td>
+                <td   id="td2_4"   class="style4">
+                   <div onclick="areaClick(17);"    class="style4"id="Div2_17"></div></td>
+                <td  id="td3_4" class="style4"  >
+                    <div onclick="areaClick(17);"   class="style4" id="Div3_17"></div></td>
+            </tr>
+            <tr>
+                <td>
+                    &nbsp;</td>
+                <td  id="td1_5"   class="style4">
+                    <div  onclick="areaClick(16);"  class="style4" id="Div1_16"></div></td>
+                <td onclick="HitIt(16);"  class="style2">
+                    16</td>
+                <td   id="td2_5"   class="style4">
+                   <div onclick="areaClick(16);"   class="style4" id="Div2_16"></div></td>
+                <td  id="td3_5" class="style4"  >
+                    <div onclick="areaClick(16);"   class="style4" id="Div3_16"></div></td>
+            </tr>
+            <tr>
+                <td>
+                    &nbsp;</td>
+                <td  id="td1_6"   class="style4">
+                    <div onclick="areaClick(15);"   class="style4" id="Div1_15"></div></td>
+                <td onclick="HitIt(15);"   class="style2">
+                    15</td>
+                <td    id="td2_6"  class="style4">
+                    <div onclick="areaClick(15);"   class="style4" id="Div2_15"></div></td>
+                <td  id="td3_6" class="style4" >
+                    <div onclick="areaClick(15);"   class="style4" id="Div3_15"></div></td>
+            </tr>
+            <tr>
+                <td>
+                    &nbsp;</td>
+                <td  id="td1_7"   class="style4">
+                    <div  onclick="areaClick(25);"  class="style4" id="Div1_25"></div></td>
+                <td  onclick="HitIt(25);"  class="style2">
+                    X</td>
+                <td   id="td2_7"  class="style4">
+                    <div onclick="areaClick(25);"   class="style4" id="Div2_25"></div></td>
+                <td  id="td3_7" class="style4"  >
+                    <div onclick="areaClick(25);"  class="style4"  id="Div3_25"></div></td>
+            </tr>
+            <tr>
+                <td>
+                    &nbsp;</td>
+                <td  id="td1_8">
+                   <div id="Div1_pts" class="style2">0</div></td>
+                <td   class="style2">
+                    pts</td>
+                <td   id="td2_8" >
+                   <div id="Div2_pts" class="style2">0</div></td>
+                <td   id="td3_8"  >
+                    <div id="Div3_pts" class="style2"  >0</div></td>
+            </tr>
+        </table>
+    </p>
+    <p>
+        &nbsp;</p>
+    <p>
+        <input id="Button1" type="button" value="Reset All" onclick="resetAll();" /></p> <!--window.location.reload();-->
+         <input id="Button2" type="button" value="Reset Points" onclick="resetPoints();" />
+</body>
+</html>
