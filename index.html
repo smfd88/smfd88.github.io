@@ -132,8 +132,8 @@
             document.getElementById('throw' + thrw.value + 'score').innerHTML = parseInt(startScore) - parseInt(ttlcnt);
 
             if (prevthrw != '0') {
-                document.getElementById('throw' + prevthrw + 'count').className = 'show';
-                document.getElementById('throw' + prevthrw + 'score').className = 'show';
+                document.getElementById('row' + prevthrw + '').className = 'show';
+                //document.getElementById('throw' + prevthrw + 'score').className = 'show';
 
                 if (prevEntrdCount != document.getElementById('throw' + prevthrw + 'count').innerHTML ||
                 prevEntrdScore != document.getElementById('throw' + prevthrw + 'score').innerHTML ) {
@@ -170,13 +170,13 @@
                     </td>
                     <td>&nbsp;</td>
                 </tr>
-                <tr>
+                <tr id="row1"  class="hide">
                     <td>
-                        <div class="hide" id="throw1count">
+                        <div  id="throw1count">
                         </div>
                     </td>
                     <td>
-                        <div class="hide" id="throw1score">
+                        <div id="throw1score">
                         </div>
                     </td>
                     <td>
@@ -184,133 +184,133 @@
                     </td>
                     <td>&nbsp;</td>
                 </tr>
-                <tr>
+                <tr id="row2"  class="hide">
                     <td>
-                        <div class="hide" id="throw2count">
+                        <div  id="throw2count">
                         </div>
                     </td>
                     <td>
-                        <div class="hide" id="throw2score">
+                        <div  id="throw2score">
                         </div>
                     </td>
                     <td><div  class="redtext" id="throw2rslt"></div></td>
                     <td>&nbsp;</td>
                 </tr>
-                <tr>
+                <tr id="row3"  class="hide" >
                     <td>
-                        <div class="hide" id="throw3count">
+                        <div id="throw3count">
                         </div>
                     </td>
                     <td>
-                        <div class="hide" id="throw3score">
+                        <div  id="throw3score">
                         </div>
                     </td>
                     <td><div  class="redtext" id="throw3rslt"></div></td>
                     <td>&nbsp;</td>
                 </tr>
-                <tr>
+                <tr id="row4"  class="hide">
                     <td>
-                        <div class="hide" id="throw4count">
+                        <div  id="throw4count">
                         </div>
                     </td>
                     <td>
-                        <div class="hide" id="throw4score">
+                        <div id="throw4score">
                         </div>
                     </td>
                     <td><div class="redtext"  id="throw4rslt"></div></td>
                     <td>&nbsp;</td>
                 </tr>
-                <tr>
+                <tr id="row5"  class="hide">
                     <td>
-                        <div class="hide" id="throw5count">
+                        <div id="throw5count">
                         </div>
                     </td>
                     <td>
-                        <div class="hide" id="throw5score">
+                        <div id="throw5score">
                         </div>
                     </td>
                     <td><div  class="redtext" id="throw5rslt"></div></td>
                     <td>&nbsp;</td>
                 </tr>
-                <tr>
+                <tr id="row6"  class="hide">
                     <td>
-                        <div class="hide" id="throw6count">
+                        <div id="throw6count">
                         </div>
                     </td>
                     <td>
-                        <div class="hide" id="throw6score">
+                        <div id="throw6score">
                         </div>
                     </td>
                     <td><div  class="redtext" id="throw6rslt"></div></td>
                     <td>&nbsp;</td>
                 </tr>
-                <tr>
+                <tr  id="row7"  class="hide">
                     <td>
-                        <div class="hide" id="throw7count">
+                        <div  id="throw7count">
                         </div>
                     </td>
                     <td>
-                        <div class="hide" id="throw7score">
+                        <div id="throw7score">
                         </div>
                     </td>
                     <td><div  class="redtext" id="throw7rslt"></div></td>
                     <td>&nbsp;</td>
                 </tr>
                 <tr>
-                    <td>
-                        <div class="hide" id="throw8count">
+                    <td id="row8"  class="hide">
+                        <div id="throw8count">
                         </div>
                     </td>
                     <td>
-                        <div class="hide" id="throw8score">
+                        <div  id="throw8score">
                         </div>
                     </td>
                     <td><div class="redtext"  id="throw8rslt"></div></td>
                     <td>&nbsp;</td>
                 </tr>
                 <tr>
-                    <td>
-                        <div class="hide" id="throw9count">
+                    <td id="row9"  class="hide">
+                        <div  id="throw9count">
                         </div>
                     </td>
                     <td>
-                        <div class="hide" id="throw9score">
+                        <div  id="throw9score">
                         </div>
                     </td>
                     <td><div  class="redtext" id="throw9rslt"></div></td>
                     <td>&nbsp;</td>
                 </tr>
-                <tr>
+                <tr id="row10"  class="hide">
                     <td>
-                        <div class="hide" id="throw10count">
+                        <div id="throw10count">
                         </div>
                     </td>
                     <td>
-                        <div class="hide" id="throw10score">
+                        <div id="throw10score">
                         </div>
                     </td>
                     <td><div  class="redtext" id="throw10rslt"></div></td>
                     <td>&nbsp;</td>
                 </tr>
-                <tr>
+                <tr id="row11"  class="hide">
                     <td>
-                        <div class="hide" id="throw11count">
+                        <div id="throw11count">
                         </div>
                     </td>
                     <td>
-                        <div class="hide" id="throw11score">
+                        <div id="throw11score">
                         </div>
                     </td>
                     <td><div class="redtext"  id="throw11rslt"></div></td>
                     <td>&nbsp;</td>
                 </tr>
-                <tr>
+                <tr id="row12"  class="hide">
                     <td>
-                        <div class="hide" id="throw12count">
+                        <div  id="throw12count">
                         </div>
                     </td>
                     <td>
-                        <div class="hide" id="throw12score">
+                        <div id="throw12score">
                         </div>
                     </td>
                     <td><div class="redtext"  id="throw12rslt"></div></td>
