@@ -1,0 +1,655 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<Outs xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+	<Out>
+		<Number>13</Number>
+		<ThreeDartOut>11  D1</ThreeDartOut>
+	</Out>
+	<Out>
+		<Number>15</Number>
+		<ThreeDartOut>13  D1</ThreeDartOut>
+	</Out>
+	<Out>
+		<Number>17</Number>
+		<ThreeDartOut>13  D2 </ThreeDartOut>
+	</Out>
+	<Out>
+		<Number>19</Number>
+		<ThreeDartOut>11  D4</ThreeDartOut>
+	</Out>
+	<Out>
+		<Number>21</Number>
+		<ThreeDartOut>17  D2</ThreeDartOut>
+	</Out>
+	<Out>
+		<Number>23</Number>
+		<ThreeDartOut>19  D2</ThreeDartOut>
+	</Out>
+	<Out>
+		<Number>25</Number>
+		<ThreeDartOut>17  D4</ThreeDartOut>
+	</Out>
+	<Out>
+		<Number>27</Number>
+		<ThreeDartOut>19  D4</ThreeDartOut>
+	</Out>
+	<Out>
+		<Number>29</Number>
+		<ThreeDartOut>17  D6</ThreeDartOut>
+	</Out>
+	<Out>
+		<Number>31</Number>
+		<ThreeDartOut>7  D12</ThreeDartOut>
+		<TwoDartOut>7/19</TwoDartOut>
+	</Out>
+	<Out>
+		<Number>33</Number>
+		<ThreeDartOut>17  D8</ThreeDartOut>
+	</Out>
+	<Out>
+		<Number>35</Number>
+		<ThreeDartOut>19  D8</ThreeDartOut>
+		<TwoDartOut>3/19</TwoDartOut>
+	</Out>
+	<Out>
+		<Number>37</Number>
+		<ThreeDartOut>5  D16</ThreeDartOut>
+		<Comments>All end in D16, except 44,45</Comments>
+	</Out>
+	<Out>
+		<Number>39</Number>
+		<ThreeDartOut>7  D16</ThreeDartOut>
+		<TwoDartOut>7/19</TwoDartOut>
+	</Out>
+	<Out>
+		<Number>41</Number>
+		<ThreeDartOut>9  D16</ThreeDartOut>
+	</Out>
+	<Out>
+		<Number>42</Number>
+		<ThreeDartOut>10  D16</ThreeDartOut>
+		<TwoDartOut>6/10</TwoDartOut>
+	</Out>
+	<Out>
+		<Number>43</Number>
+		<ThreeDartOut>11  D16</ThreeDartOut>
+	</Out>
+	<Out>
+		<Number>44</Number>
+		<ThreeDartOut>8  D18</ThreeDartOut>
+		<TwoDartOut>16/8</TwoDartOut>
+	</Out>
+	<Out>
+		<Number>45</Number>
+		<ThreeDartOut>7  D19</ThreeDartOut>
+		<TwoDartOut>7/19</TwoDartOut>
+	</Out>
+	<Out>
+		<Number>46</Number>
+		<ThreeDartOut>14  D16</ThreeDartOut>
+	</Out>
+	<Out>
+		<Number>47</Number>
+		<ThreeDartOut>15  D16</ThreeDartOut>
+	</Out>
+	<Out>
+		<Number>48</Number>
+		<ThreeDartOut>16  D16</ThreeDartOut>
+		<TwoDartOut>16/8</TwoDartOut>
+	</Out>
+	<Out>
+		<Number>49</Number>
+		<ThreeDartOut>9  D20</ThreeDartOut>
+		<Comments>All end in D20</Comments>
+	</Out>
+	<Out>
+		<Number>50</Number>
+		<ThreeDartOut>T10  D10</ThreeDartOut>
+	</Out>
+	<Out>
+		<Number>51</Number>
+		<ThreeDartOut>11  D20</ThreeDartOut>
+	</Out>
+	<Out>
+		<Number>52</Number>
+		<ThreeDartOut>12  D20</ThreeDartOut>
+	</Out>
+	<Out>
+		<Number>53</Number>
+		<ThreeDartOut>13  D20</ThreeDartOut>
+	</Out>
+	<Out>
+		<Number>54</Number>
+		<ThreeDartOut>14  D20</ThreeDartOut>
+	</Out>
+	<Out>
+		<Number>55</Number>
+		<ThreeDartOut>15  D20</ThreeDartOut>
+	</Out>
+	<Out>
+		<Number>56</Number>
+		<ThreeDartOut>16  D20</ThreeDartOut>
+	</Out>
+	<Out>
+		<Number>57</Number>
+		<ThreeDartOut>17  D20</ThreeDartOut>
+	</Out>
+	<Out>
+		<Number>58</Number>
+		<ThreeDartOut>18  D20</ThreeDartOut>
+	</Out>
+	<Out>
+		<Number>59</Number>
+		<ThreeDartOut>19  D20</ThreeDartOut>
+	</Out>
+	<Out>
+		<Number>60</Number>
+		<ThreeDartOut>20  D20</ThreeDartOut>
+	</Out>
+	<Out>
+		<Number>61</Number>
+		<ThreeDartOut>SB  D18</ThreeDartOut>
+		<TwoDartOut>T11  D14</TwoDartOut>
+		<Comments>With 2 darts, shoot for number that leaves 50 on single hit</Comments>
+	</Out>
+	<Out>
+		<Number>62</Number>
+		<ThreeDartOut>T10  D16</ThreeDartOut>
+		<TwoDartOut>T12  D13</TwoDartOut>
+	</Out>
+	<Out>
+		<Number>63</Number>
+		<ThreeDartOut>T9  D18</ThreeDartOut>
+		<TwoDartOut>T13  D12</TwoDartOut>
+	</Out>
+	<Out>
+		<Number>64</Number>
+		<ThreeDartOut>T16  D8</ThreeDartOut>
+		<TwoDartOut>T14  D11</TwoDartOut>
+	</Out>
+	<Out>
+		<Number>65</Number>
+		<ThreeDartOut>SB  D20</ThreeDartOut>
+		<TwoDartOut>T15  D10</TwoDartOut>
+	</Out>
+	<Out>
+		<Number>66</Number>
+		<ThreeDartOut>T10  D18</ThreeDartOut>
+		<TwoDartOut>T16  D9</TwoDartOut>
+	</Out>
+	<Out>
+		<Number>67</Number>
+		<ThreeDartOut>T9  D20</ThreeDartOut>
+		<TwoDartOut>T17  D8</TwoDartOut>
+	</Out>
+	<Out>
+		<Number>68</Number>
+		<ThreeDartOut>T16  D10</ThreeDartOut>
+		<TwoDartOut>T18  D7</TwoDartOut>
+	</Out>
+	<Out>
+		<Number>69</Number>
+		<ThreeDartOut>T11  D18</ThreeDartOut>
+		<TwoDartOut>T19  D6</TwoDartOut>
+	</Out>
+	<Out>
+		<Number>70</Number>
+		<ThreeDartOut>T10 D20</ThreeDartOut>
+		<TwoDartOut>T20 D5</TwoDartOut>
+	</Out>
+	<Out>
+		<Number>71</Number>
+		<ThreeDartOut>T13 D16</ThreeDartOut>
+		<TwoDartOut>T19 D7</TwoDartOut>
+	</Out>
+	<Out>
+		<Number>72</Number>
+		<ThreeDartOut>T16 D12</ThreeDartOut>
+	</Out>
+	<Out>
+		<Number>73</Number>
+		<ThreeDartOut>T19 D8</ThreeDartOut>
+	</Out>
+	<Out>
+		<Number>74</Number>
+		<ThreeDartOut>T14 D16</ThreeDartOut>
+		<TwoDartOut>T16 D13</TwoDartOut>
+	</Out>
+	<Out>
+		<Number>75</Number>
+		<ThreeDartOut>T17 D12</ThreeDartOut>
+		<TwoDartOut>SB DB</TwoDartOut>
+	</Out>
+	<Out>
+		<Number>76</Number>
+		<ThreeDartOut>T16 D14</ThreeDartOut>
+		<TwoDartOut>T20 D8</TwoDartOut>
+	</Out>
+	<Out>
+		<Number>77</Number>
+		<ThreeDartOut>T19 D10</ThreeDartOut>
+	</Out>
+	<Out>
+		<Number>78</Number>
+		<ThreeDartOut>T14 D18</ThreeDartOut>
+	</Out>
+	<Out>
+		<Number>79</Number>
+		<ThreeDartOut>T19 D11</ThreeDartOut>
+		<TwoDartOut>T13 D20</TwoDartOut>
+	</Out>
+	<Out>
+		<Number>80</Number>
+		<ThreeDartOut>T20 D10</ThreeDartOut>
+		<TwoDartOut>T16 D16</TwoDartOut>
+	</Out>
+	<Out>
+		<Number>81</Number>
+		<ThreeDartOut>SB 16 D20</ThreeDartOut>
+		<TwoDartOut>T19 D12</TwoDartOut>
+		<Comments>Require Trip or Bull</Comments>
+	</Out>
+	<Out>
+		<Number>82</Number>
+		<ThreeDartOut>DB D16</ThreeDartOut>
+		<TwoDartOut>T14 D20</TwoDartOut>
+	</Out>
+	<Out>
+		<Number>83</Number>
+		<ThreeDartOut>SB 18 D20</ThreeDartOut>
+		<TwoDartOut>T17 D16</TwoDartOut>
+	</Out>
+	<Out>
+		<Number>84</Number>
+		<ThreeDartOut>SB 19 D20</ThreeDartOut>
+		<TwoDartOut>T20 D12</TwoDartOut>
+	</Out>
+	<Out>
+		<Number>85</Number>
+		<ThreeDartOut>SB 20 D20</ThreeDartOut>
+	</Out>
+	<Out>
+		<Number>86</Number>
+		<ThreeDartOut>T18 D16</ThreeDartOut>
+	</Out>
+	<Out>
+		<Number>87</Number>
+		<ThreeDartOut>T17 D18</ThreeDartOut>
+	</Out>
+	<Out>
+		<Number>88</Number>
+		<ThreeDartOut>T20 D14</ThreeDartOut>
+	</Out>
+	<Out>
+		<Number>89</Number>
+		<ThreeDartOut>T19 D16</ThreeDartOut>
+	</Out>
+	<Out>
+		<Number>90</Number>
+		<ThreeDartOut>T20 D15</ThreeDartOut>
+		<TwoDartOut>T18 D18</TwoDartOut>
+	</Out>
+	<Out>
+		<Number>91</Number>
+		<ThreeDartOut>SB T16 D9</ThreeDartOut>
+		<TwoDartOut>T17 D20</TwoDartOut>
+	</Out>
+	<Out>
+		<Number>92</Number>
+		<ThreeDartOut>SB T17 D8</ThreeDartOut>
+		<TwoDartOut>T20 D16</TwoDartOut>
+	</Out>
+	<Out>
+		<Number>93</Number>
+		<ThreeDartOut>SB T18 D7</ThreeDartOut>
+		<TwoDartOut>T19 D18</TwoDartOut>
+	</Out>
+	<Out>
+		<Number>94</Number>
+		<ThreeDartOut>SB T19 D6</ThreeDartOut>
+		<TwoDartOut>T18 D20</TwoDartOut>
+	</Out>
+	<Out>
+		<Number>95</Number>
+		<ThreeDartOut>SB T20 D5</ThreeDartOut>
+		<TwoDartOut>T19 D19</TwoDartOut>
+	</Out>
+	<Out>
+		<Number>96</Number>
+		<ThreeDartOut>T20  D18</ThreeDartOut>
+		<TwoDartOut>same</TwoDartOut>
+	</Out>
+	<Out>
+		<Number>97</Number>
+		<ThreeDartOut>T19  D20</ThreeDartOut>
+		<TwoDartOut>same</TwoDartOut>
+	</Out>
+	<Out>
+		<Number>98</Number>
+		<ThreeDartOut>T20  D19</ThreeDartOut>
+		<TwoDartOut>same</TwoDartOut>
+	</Out>
+	<Out>
+		<Number>99</Number>
+		<ThreeDartOut>T19  10  D16</ThreeDartOut>
+		<TwoDartOut>Impossible</TwoDartOut>
+	</Out>
+	<Out>
+		<Number>100</Number>
+		<ThreeDartOut>T20  D20</ThreeDartOut>
+		<TwoDartOut>same</TwoDartOut>
+	</Out>
+	<Out>
+		<Number>101</Number>
+		<ThreeDartOut>T20  9  D16</ThreeDartOut>
+		<TwoDartOut>T17  DB</TwoDartOut>
+	</Out>
+	<Out>
+		<Number>102</Number>
+		<ThreeDartOut>T20  10  D16</ThreeDartOut>
+		<TwoDartOut>Impossible</TwoDartOut>
+	</Out>
+	<Out>
+		<Number>103</Number>
+		<ThreeDartOut>T19  11  D16</ThreeDartOut>
+		<TwoDartOut>Impossible</TwoDartOut>
+	</Out>
+	<Out>
+		<Number>104</Number>
+		<ThreeDartOut>T16  16  D20</ThreeDartOut>
+		<TwoDartOut>T18  DB</TwoDartOut>
+	</Out>
+	<Out>
+		<Number>105</Number>
+		<ThreeDartOut>T20  7  D19</ThreeDartOut>
+		<TwoDartOut>Impossible</TwoDartOut>
+	</Out>
+	<Out>
+		<Number>106</Number>
+		<ThreeDartOut>T20  14  D16</ThreeDartOut>
+		<TwoDartOut>Impossible</TwoDartOut>
+	</Out>
+	<Out>
+		<Number>107</Number>
+		<ThreeDartOut>T19  T10  D10</ThreeDartOut>
+		<TwoDartOut>T19  DB</TwoDartOut>
+	</Out>
+	<Out>
+		<Number>108</Number>
+		<ThreeDartOut>T16  20  D20</ThreeDartOut>
+		<TwoDartOut>Impossible</TwoDartOut>
+	</Out>
+	<Out>
+		<Number>109</Number>
+		<ThreeDartOut>T20  9  D20</ThreeDartOut>
+		<TwoDartOut>Impossible</TwoDartOut>
+	</Out>
+	<Out>
+		<Number>110</Number>
+		<ThreeDartOut>T19  13  D20</ThreeDartOut>
+		<TwoDartOut>T20  DB</TwoDartOut>
+	</Out>
+	<Out>
+		<Number>111</Number>
+		<ThreeDartOut>T19  14  D20</ThreeDartOut>
+	</Out>
+	<Out>
+		<Number>112</Number>
+		<ThreeDartOut>T20  12  D20</ThreeDartOut>
+	</Out>
+	<Out>
+		<Number>113</Number>
+		<ThreeDartOut>T19  16  D20</ThreeDartOut>
+	</Out>
+	<Out>
+		<Number>114</Number>
+		<ThreeDartOut>T19  17  D20</ThreeDartOut>
+	</Out>
+	<Out>
+		<Number>115</Number>
+		<ThreeDartOut>T20  15  D20</ThreeDartOut>
+	</Out>
+	<Out>
+		<Number>116</Number>
+		<ThreeDartOut>T19  19  D20</ThreeDartOut>
+	</Out>
+	<Out>
+		<Number>117</Number>
+		<ThreeDartOut>T19  20  D20</ThreeDartOut>
+	</Out>
+	<Out>
+		<Number>118</Number>
+		<ThreeDartOut>T20  18  D20</ThreeDartOut>
+	</Out>
+	<Out>
+		<Number>119</Number>
+		<ThreeDartOut>T19  T10  D16</ThreeDartOut>
+	</Out>
+	<Out>
+		<Number>120</Number>
+		<ThreeDartOut>T20  20  D20</ThreeDartOut>
+	</Out>
+	<Out>
+		<Number>121</Number>
+		<ThreeDartOut>T20  T11  D14</ThreeDartOut>
+		<TwoDartOut>SB  96 / T17  70</TwoDartOut>
+	</Out>
+	<Out>
+		<Number>122</Number>
+		<ThreeDartOut>T18  T18  D7</ThreeDartOut>
+	</Out>
+	<Out>
+		<Number>123</Number>
+		<ThreeDartOut>T19  T16  D9</ThreeDartOut>
+	</Out>
+	<Out>
+		<Number>124</Number>
+		<ThreeDartOut>T20  T14  D11</ThreeDartOut>
+	</Out>
+	<Out>
+		<Number>125</Number>
+		<ThreeDartOut>SB  T20  D20</ThreeDartOut>
+		<TwoDartOut>T18  71</TwoDartOut>
+	</Out>
+	<Out>
+		<Number>126</Number>
+		<ThreeDartOut>T19  T19  D6</ThreeDartOut>
+	</Out>
+	<Out>
+		<Number>127</Number>
+		<ThreeDartOut>T20  T17  D8</ThreeDartOut>
+	</Out>
+	<Out>
+		<Number>128</Number>
+		<ThreeDartOut>T18  74</ThreeDartOut>
+	</Out>
+	<Out>
+		<Number>129</Number>
+		<ThreeDartOut>T19  72</ThreeDartOut>
+		<TwoDartOut>SB  104</TwoDartOut>
+	</Out>
+	<Out>
+		<Number>130</Number>
+		<ThreeDartOut>T20  70</ThreeDartOut>
+	</Out>
+	<Out>
+		<Number>131</Number>
+		<ThreeDartOut>T19  74</ThreeDartOut>
+	</Out>
+	<Out>
+		<Number>132</Number>
+		<ThreeDartOut>DB  82</ThreeDartOut>
+		<TwoDartOut>T20  72</TwoDartOut>
+	</Out>
+	<Out>
+		<Number>133</Number>
+		<ThreeDartOut>T20  73</ThreeDartOut>
+	</Out>
+	<Out>
+		<Number>134</Number>
+		<ThreeDartOut>T20  74</ThreeDartOut>
+	</Out>
+	<Out>
+		<Number>135</Number>
+		<ThreeDartOut>DB  85</ThreeDartOut>
+		<TwoDartOut>T20  75</TwoDartOut>
+	</Out>
+	<Out>
+		<Number>136</Number>
+		<ThreeDartOut>T20  76</ThreeDartOut>
+	</Out>
+	<Out>
+		<Number>137</Number>
+		<ThreeDartOut>T20  77</ThreeDartOut>
+	</Out>
+	<Out>
+		<Number>138</Number>
+		<ThreeDartOut>T20  78</ThreeDartOut>
+		<TwoDartOut>T19  T19  D12</TwoDartOut>
+	</Out>
+	<Out>
+		<Number>139</Number>
+		<ThreeDartOut>T20  79</ThreeDartOut>
+		<TwoDartOut>T19  82</TwoDartOut>
+	</Out>
+	<Out>
+		<Number>140</Number>
+		<ThreeDartOut>T20  80</ThreeDartOut>
+	</Out>
+	<Out>
+		<Number>141</Number>
+		<ThreeDartOut>T20  81</ThreeDartOut>
+		<TwoDartOut>T19  84</TwoDartOut>
+	</Out>
+	<Out>
+		<Number>142</Number>
+		<ThreeDartOut>T20  82</ThreeDartOut>
+		<TwoDartOut>T19  T19  D14</TwoDartOut>
+	</Out>
+	<Out>
+		<Number>143</Number>
+		<ThreeDartOut>T20  83</ThreeDartOut>
+		<TwoDartOut>T19  86</TwoDartOut>
+	</Out>
+	<Out>
+		<Number>144</Number>
+		<ThreeDartOut>T20  84</ThreeDartOut>
+		<TwoDartOut>T19  87</TwoDartOut>
+	</Out>
+	<Out>
+		<Number>145</Number>
+		<ThreeDartOut>T20  85</ThreeDartOut>
+		<TwoDartOut>T19  88</TwoDartOut>
+	</Out>
+	<Out>
+		<Number>146</Number>
+		<ThreeDartOut>T20  86</ThreeDartOut>
+		<TwoDartOut>T19  T19  D16</TwoDartOut>
+	</Out>
+	<Out>
+		<Number>147</Number>
+		<ThreeDartOut>T20  87</ThreeDartOut>
+		<TwoDartOut>T19  90</TwoDartOut>
+	</Out>
+	<Out>
+		<Number>148</Number>
+		<ThreeDartOut>T20  88</ThreeDartOut>
+		<TwoDartOut>T19  91</TwoDartOut>
+	</Out>
+	<Out>
+		<Number>149</Number>
+		<ThreeDartOut>T20  89</ThreeDartOut>
+		<TwoDartOut>T19  92</TwoDartOut>
+	</Out>
+	<Out>
+		<Number>150</Number>
+		<ThreeDartOut>T20  90</ThreeDartOut>
+		<TwoDartOut>T19  T19  D18</TwoDartOut>
+	</Out>
+	<Out>
+		<Number>151</Number>
+		<ThreeDartOut>T20  91</ThreeDartOut>
+		<TwoDartOut>T19  94</TwoDartOut>
+	</Out>
+	<Out>
+		<Number>152</Number>
+		<ThreeDartOut>T20  92</ThreeDartOut>
+		<TwoDartOut>T19  T19  D19</TwoDartOut>
+	</Out>
+	<Out>
+		<Number>153</Number>
+		<ThreeDartOut>T20  93</ThreeDartOut>
+		<TwoDartOut>T19  96</TwoDartOut>
+	</Out>
+	<Out>
+		<Number>154</Number>
+		<ThreeDartOut>T20  94</ThreeDartOut>
+		<TwoDartOut>T19  97</TwoDartOut>
+	</Out>
+	<Out>
+		<Number>155</Number>
+		<ThreeDartOut>T20  95</ThreeDartOut>
+		<TwoDartOut>T19  98</TwoDartOut>
+	</Out>
+	<Out>
+		<Number>156</Number>
+		<ThreeDartOut>T20  96</ThreeDartOut>
+	</Out>
+	<Out>
+		<Number>157</Number>
+		<ThreeDartOut>T20  97</ThreeDartOut>
+		<TwoDartOut>T19  100</TwoDartOut>
+	</Out>
+	<Out>
+		<Number>158</Number>
+		<ThreeDartOut>T20  98</ThreeDartOut>
+	</Out>
+	<Out>
+		<Number>159</Number>
+		<ThreeDartOut>Impossible</ThreeDartOut>
+	</Out>
+	<Out>
+		<Number>160</Number>
+		<ThreeDartOut>T20  T20  D20</ThreeDartOut>
+	</Out>
+	<Out>
+		<Number>161</Number>
+		<ThreeDartOut>T20  T17  DB</ThreeDartOut>
+	</Out>
+	<Out>
+		<Number>162</Number>
+		<ThreeDartOut>Impossible</ThreeDartOut>
+	</Out>
+	<Out>
+		<Number>163</Number>
+		<ThreeDartOut>Impossible</ThreeDartOut>
+	</Out>
+	<Out>
+		<Number>164</Number>
+		<ThreeDartOut>T20  T18  DB</ThreeDartOut>
+		<TwoDartOut>T19  T19  DB</TwoDartOut>
+	</Out>
+	<Out>
+		<Number>165</Number>
+		<ThreeDartOut>Impossible</ThreeDartOut>
+	</Out>
+	<Out>
+		<Number>166</Number>
+		<ThreeDartOut>Impossible</ThreeDartOut>
+	</Out>
+	<Out>
+		<Number>167</Number>
+		<ThreeDartOut>T20  T19  DB</ThreeDartOut>
+	</Out>
+	<Out>
+		<Number>168</Number>
+		<ThreeDartOut>Impossible</ThreeDartOut>
+	</Out>
+	<Out>
+		<Number>169</Number>
+		<ThreeDartOut>Impossible</ThreeDartOut>
+	</Out>
+	<Out>
+		<Number>170</Number>
+		<ThreeDartOut>T20  T20  DB</ThreeDartOut>
+	</Out>
+</Outs>
