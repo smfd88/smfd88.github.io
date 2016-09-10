@@ -197,8 +197,8 @@
     <form>
 
         <div class="maindiv">
-            Trips % <input id="txtTrip" type="number" value="15" />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-            Doubles % <input id="txtDbl" type="number" value="10" />&nbsp;&nbsp;
+            Trips % <input id="txtTrip" type="number" value="15"  maxlength="2"  />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+            Doubles % <input id="txtDbl" type="number" value="10" maxlength="2"  />&nbsp;&nbsp;
             <input id="txtThrowCount" type="text" value="0" class="hide" /><br />
             <input id="txtStartTime" type="hidden" value="" />
             &nbsp;  
@@ -206,7 +206,7 @@
                 <tr>
                     <td>start</td>
                     <td>
-                        <input style="font-size: 1.5em; width:50px;" id="txtStartCount" type="number" value="501" />
+                        <input style="font-size: 1.5em; width:50px;"  maxlength="3"  id="txtStartCount" type="number" value="501" />
                     </td>
                     <td></td>
                     <td>&nbsp;</td>
@@ -468,8 +468,8 @@
                         <td><div class="exp" id="dart3exp"></div></td>
                     </tr>
                 </table>
-                <input id="Text4" type="number"  style="font-size: 1.5em; " /> &nbsp; &nbsp;
-                <input id="Text5" type="number" style="font-size: 1.5em; " /> &nbsp; &nbsp;
+                <input id="Text4" type="number" maxlength="3"  style="font-size: 1.4em; " /> &nbsp; &nbsp;
+                <input id="Text5" type="number"  maxlength="3" style="font-size: 1.4em; " /> &nbsp; &nbsp;
                 <input id="Button1" type="button" value="GO" onclick="throwDarts();" />
 
                 <br />&nbsp; &nbsp;Total: <span class="w20" id="totalTime">0</span>&nbsp;secs
