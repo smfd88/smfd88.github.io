@@ -107,8 +107,14 @@
                 for (var j = 0; j < number.length; j++)
                 {
                     if (number[j].childNodes[0].nodeValue == searchval) {
-                        alert(number[j].childNodes[0].nodeValue);
-                        alert(out.getElementsByTagName("ThreeDartOut")[0].childNodes[0].nodeValue);
+                        var out3 = "";
+                        var out2 = "";
+                        var comments = "";
+                        try{out3 = out.getElementsByTagName("ThreeDartOut")[0].childNodes[0].nodeValue;}catch(err){}
+                        try{out2 = out.getElementsByTagName("TwoDartOut")[0].childNodes[0].nodeValue;}catch(err){}
+                        try {comments = out.getElementsByTagName("Comments")[0].childNodes[0].nodeValue; } catch (err) { }
+ 
+                        alert(out3 + '  \n' + out2 + '  \n' + comments);
                     }
                 }
             }
@@ -195,9 +201,7 @@
             Doubles % <input id="txtDbl" type="number" value="10" />&nbsp;&nbsp;
             <input id="txtThrowCount" type="text" value="0" class="hide" /><br />
             <input id="txtStartTime" type="hidden" value="" />
-            &nbsp;
-
-            <input id="Button1" type="button" value="button" onclick="XmlRead(61);" />
+            &nbsp;  
             &nbsp;<table class="auto-style1">
                 <tr>
                     <td>start</td>
@@ -213,7 +217,7 @@
                         </div>
                     </td>
                     <td>
-                        <div class="bld" id="throw1score">
+                        <div class="bld" id="throw1score" ondblclick="XmlRead(this.innerHTML);" >
                         </div>
                     </td>
                     <td>
@@ -227,7 +231,7 @@
                         </div>
                     </td>
                     <td>
-                        <div class="bld" id="throw2score">
+                        <div class="bld" id="throw2score" ondblclick="XmlRead(this.innerHTML);" >
                         </div>
                     </td>
                     <td><div class="redtext" id="throw2rslt"></div></td>
@@ -239,7 +243,7 @@
                         </div>
                     </td>
                     <td>
-                        <div class="bld" id="throw3score">
+                        <div class="bld" id="throw3score" ondblclick="XmlRead(this.innerHTML);" >
                         </div>
                     </td>
                     <td><div class="redtext" id="throw3rslt"></div></td>
@@ -251,7 +255,7 @@
                         </div>
                     </td>
                     <td>
-                        <div class="bld" id="throw4score">
+                        <div class="bld" id="throw4score" ondblclick="XmlRead(this.innerHTML);" >
                         </div>
                     </td>
                     <td><div class="redtext" id="throw4rslt"></div></td>
@@ -263,7 +267,7 @@
                         </div>
                     </td>
                     <td>
-                        <div class="bld" id="throw5score">
+                        <div class="bld" id="throw5score" ondblclick="XmlRead(this.innerHTML);" >
                         </div>
                     </td>
                     <td><div class="redtext" id="throw5rslt"></div></td>
@@ -275,7 +279,7 @@
                         </div>
                     </td>
                     <td>
-                        <div class="bld" id="throw6score">
+                        <div class="bld" id="throw6score" ondblclick="XmlRead(this.innerHTML);" >
                         </div>
                     </td>
                     <td><div class="redtext" id="throw6rslt"></div></td>
@@ -287,7 +291,7 @@
                         </div>
                     </td>
                     <td>
-                        <div class="bld" id="throw7score">
+                        <div class="bld" id="throw7score" ondblclick="XmlRead(this.innerHTML);" >
                         </div>
                     </td>
                     <td><div class="redtext" id="throw7rslt"></div></td>
@@ -299,7 +303,7 @@
                         </div>
                     </td>
                     <td>
-                        <div class="bld" id="throw8score">
+                        <div class="bld" id="throw8score" ondblclick="XmlRead(this.innerHTML);" >
                         </div>
                     </td>
                     <td><div class="redtext" id="throw8rslt"></div></td>
@@ -311,7 +315,7 @@
                         </div>
                     </td>
                     <td>
-                        <div class="bld" id="throw9score">
+                        <div class="bld" id="throw9score" ondblclick="XmlRead(this.innerHTML);" >
                         </div>
                     </td>
                     <td><div class="redtext" id="throw9rslt"></div></td>
@@ -323,7 +327,7 @@
                         </div>
                     </td>
                     <td>
-                        <div class="bld" id="throw10score">
+                        <div class="bld" id="throw10score" ondblclick="XmlRead(this.innerHTML);" >
                         </div>
                     </td>
                     <td><div class="redtext" id="throw10rslt"></div></td>
@@ -335,7 +339,7 @@
                         </div>
                     </td>
                     <td>
-                        <div class="bld" id="throw11score">
+                        <div class="bld" id="throw11score" ondblclick="XmlRead(this.innerHTML);" >
                         </div>
                     </td>
                     <td><div class="redtext" id="throw11rslt"></div></td>
@@ -347,7 +351,7 @@
                         </div>
                     </td>
                     <td>
-                        <div class="bld" id="throw12score">
+                        <div class="bld" id="throw12score" ondblclick="XmlRead(this.innerHTML);" >
                         </div>
                     </td>
                     <td><div class="redtext" id="throw12rslt"></div></td>
@@ -359,7 +363,7 @@
                         </div>
                     </td>
                     <td>
-                        <div class="bld" id="throw13score">
+                        <div class="bld" id="throw13score" ondblclick="XmlRead(this.innerHTML);" >
                         </div>
                     </td>
                     <td><div class="redtext" id="throw13rslt"></div></td>
@@ -371,7 +375,7 @@
                         </div>
                     </td>
                     <td>
-                        <div class="bld" id="throw14score">
+                        <div class="bld" id="throw14score" ondblclick="XmlRead(this.innerHTML);" >
                         </div>
                     </td>
                     <td><div class="redtext" id="throw14rslt"></div></td>
@@ -383,7 +387,7 @@
                         </div>
                     </td>
                     <td>
-                        <div class="bld" id="throw15score">
+                        <div class="bld" id="throw15score" ondblclick="XmlRead(this.innerHTML);" >
                         </div>
                     </td>
                     <td><div class="redtext" id="throw15rslt"></div></td>
@@ -395,7 +399,7 @@
                         </div>
                     </td>
                     <td>
-                        <div class="bld" id="throw16score">
+                        <div class="bld" id="throw16score" ondblclick="XmlRead(this.innerHTML);" >
                         </div>
                     </td>
                     <td><div class="redtext" id="throw16rslt"></div></td>
@@ -407,7 +411,7 @@
                         </div>
                     </td>
                     <td>
-                        <div class="bld" id="throw17score">
+                        <div class="bld" id="throw17score" ondblclick="XmlRead(this.innerHTML);" >
                         </div>
                     </td>
                     <td><div class="redtext" id="throw17rslt"></div></td>
@@ -419,7 +423,7 @@
                         </div>
                     </td>
                     <td>
-                        <div class="bld" id="throw18score">
+                        <div class="bld" id="throw18score"  ondblclick="XmlRead(this.innerHTML);" >
                         </div>
                     </td>
                     <td><div class="redtext" id="throw18rslt"></div></td>
@@ -431,7 +435,7 @@
                         </div>
                     </td>
                     <td>
-                        <div class="bld" id="throw19score">
+                        <div class="bld" id="throw19score" ondblclick="XmlRead(this.innerHTML);" >
                         </div>
                     </td>
                     <td><div class="redtext" id="throw19rslt"></div></td>
@@ -443,7 +447,7 @@
                         </div>
                     </td>
                     <td>
-                        <div class="bld" id="throw20score">
+                        <div class="bld" id="throw20score" ondblclick="XmlRead(this.innerHTML);" >
                         </div>
                     </td>
                     <td><div class="redtext" id="throw20rslt"></div></td>
@@ -477,4 +481,5 @@
 
 </body>
 </html>
+ 
  
