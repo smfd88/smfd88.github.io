@@ -1,0 +1,210 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title></title>
+	<meta charset="utf-8" />
+    <style>
+        .avg {
+            font-size:1.5em;
+            color:maroon;
+            padding-left:15px;
+        }
+
+        .hid {
+        display:none;
+        }
+
+        .show {
+        display:;
+        }
+
+        .ttl {
+            font-size:1.2em;
+            color:navy;
+            padding-left:15px;
+        }
+        
+        .hits {
+            font-size:1.2em;
+            color:green;
+            padding-left:15px;
+        }
+
+    </style>
+    <script>
+
+        function throwRound() {
+
+            var ThrowsPerRound = parseInt(document.getElementById('txtThrowsPerRound').value);
+            var TargetNumStart = parseInt(document.getElementById('txtTargetNumStart').value.replace('B','21'));
+            var TargetNumEnd = parseInt(document.getElementById('txtTargetNumEnd').value.replace('B', '21'));            
+            var ctrlRound = document.getElementById('txtRound');            
+            var Round = parseInt(ctrlRound.value);            
+    
+
+            if (TargetNumStart > 21 || TargetNumStart < 1 || TargetNumEnd > 21 || TargetNumEnd < 1 || TargetNumEnd < TargetNumStart)
+            {
+                alert('Start and End must be between 1 and 20 or B');
+            }
+
+
+            var prevTargetValue = document.getElementById('currentTargetNumber').innerHTML;
+           // alert(prevTargetValue); 
+    
+            if (prevTargetValue != "") {
+                var hits = document.getElementById('currentTargetHits').value;
+                document.getElementById('Target' + prevTargetValue.toString()).innerHTML += hits + ',';
+                var prevIdx = parseInt(document.getElementById('TotalTarget' + prevTargetValue.toString()).innerHTML);
+                document.getElementById('TotalTarget' + prevTargetValue.toString()).innerHTML = prevIdx + 1;
+                document.getElementById('currentTargetHits').value = "0";
+
+                //calc avg                
+                var allhits = document.getElementById('Target' + prevTargetValue.toString()).innerHTML;
+                allhits = allhits.replace(/,\s*$/, ""); //trim last comma
+                var arrAllhits = allhits.split(",");
+                ttl = 0;
+                for (var q = 0; q < arrAllhits.length; q++) {
+                    ttl = ttl + parseInt(arrAllhits[q]);
+                }
+
+                //  alert(ttl / arrAllhits.length);
+                document.getElementById('TotalAvg' + prevTargetValue.toString()).innerHTML = ttl + '   |   ' + (ttl / arrAllhits.length).toFixed(2);
+
+            } else {
+                document.getElementById('tableHits').className = "show";
+                for (y = TargetNumStart; y <= TargetNumEnd; y++)
+                {                    
+                    document.getElementById('row' + y.toString()).className = "show";
+                }
+                document.getElementById('Button1').className = "hid";
+            }
+         
+
+            boolTargetOK = 0;
+            loop = 0;
+            do {
+                min = Math.ceil(TargetNumEnd);
+                max = Math.floor(TargetNumStart);
+                rdm = Math.random();
+                var randTargetNumber = Math.floor(rdm * (max - (min + 1))) + (min + 1);
+                var curTargetValue = document.getElementById('Target' + randTargetNumber.toString()).innerHTML;
+                var curTotalTarget = parseInt(document.getElementById('TotalTarget' + randTargetNumber.toString()).innerHTML);
+                if (curTotalTarget < ThrowsPerRound) {
+                    boolTargetOK = 1;
+                }
+                 
+                if (loop > 44)
+                {
+                    boolTargetOK = 2;
+                }
+                loop++;
+            }
+            while (boolTargetOK < 1 );
+
+            if (boolTargetOK < 2) {
+                document.getElementById('currentTargetNumber').innerHTML = randTargetNumber;
+                ctrlRound.value = parseInt(ctrlRound.value) + 1;
+            } else {
+                alert('done');
+            }
+        }
+        
+        function loadNumber(v) {
+           // alert(v);
+            document.getElementById('currentTargetHits').value = v;
+            Button1.click();
+        }
+    </script>
+</head>
+<body>
+    Throws per round:<input id="txtThrowsPerRound" type="number" value="5"  maxlength="2" style="width:30px;" /><br />
+    Numbers to Practice (Start):  <input id="txtTargetNumStart" type="number"  maxlength="2" value="15" style="width:30px;" /><br />
+    Numbers to Practice (End):  <input id="txtTargetNumEnd" type="number"  maxlength="2"  value="20" style="width:30px;" /><br />
+    <input id="txtRound" type="number" readonly="readonly" value="0" style="width:30px;display:none;"  />
+    <br />
+
+    <input id="Button1" type="button" value="Start" onclick="throwRound();" /><br /><br />
+   <table><tr><td>Current Target: </td><td><div id="currentTargetNumber" style="font-size: 4.4em; color:darkgreen;"></div> </td></tr></table>
+    <input id="currentTargetHits" type="number" value="0" maxlength="1" style="width:50px;font-size: 1.4em;display:none;" />
+   
+    How many hit: <table id="tableHits" class="hid" style="font-size: 2.9em;"><tr><td  onclick="loadNumber(this.innerHTML);">0</td>
+                                         <td style="padding-left:15px;" onclick="loadNumber(this.innerHTML);">1</td>
+                                         <td style="padding-left:15px;" onclick="loadNumber(this.innerHTML);">2</td>
+                                         <td style="padding-left:15px;" onclick="loadNumber(this.innerHTML);">3</td>
+                                         <td style="padding-left:15px;" onclick="loadNumber(this.innerHTML);">4</td>
+                                         <td style="padding-left:15px;" onclick="loadNumber(this.innerHTML);">5</td>
+                                         <td style="padding-left:15px;" onclick="loadNumber(this.innerHTML);">6</td>
+                                         <td style="padding-left:15px;" onclick="loadNumber(this.innerHTML);">7</td>
+                                         <td style="padding-left:15px;" onclick="loadNumber(this.innerHTML);">8</td>
+                                         <td style="padding-left:15px;" onclick="loadNumber(this.innerHTML);">9</td>                         
+        </tr></table>
+    <br />
+     <table>
+        <tr id="row1" class="hid"><td>1:&nbsp;</td>
+            <td class="hits" id="Target1"></td><td  class="ttl" id="TotalTarget1">0</td><td class="avg" id="TotalAvg1">0</td>
+        </tr>
+        <tr id="row2" class="hid"><td>2:&nbsp;</td>
+            <td  class="hits" id="Target2"></td><td  class="ttl" id="TotalTarget2">0</td><td  class="avg" id="TotalAvg2">0</td>
+        </tr>
+        <tr id="row3" class="hid"><td>3:&nbsp;</td>
+            <td  class="hits" id="Target3"></td><td  class="ttl" id="TotalTarget3">0</td><td  class="avg" id="TotalAvg3">0</td>
+        </tr>
+        <tr id="row4" class="hid"><td>4:&nbsp;</td>
+            <td class="hits"  id="Target4"></td><td  class="ttl" id="TotalTarget4">0</td><td  class="avg" id="TotalAvg4">0</td>
+        </tr>
+        <tr id="row5" class="hid"><td>5:&nbsp;</td>
+            <td  class="hits" id="Target5"></td><td  class="ttl" id="TotalTarget5">0</td><td  class="avg" id="TotalAvg5">0</td>
+        </tr>
+        <tr id="row6" class="hid"><td>6:&nbsp;</td>
+            <td class="hits"  id="Target6"></td><td  class="ttl" id="TotalTarget6">0</td><td  class="avg" id="TotalAvg6">0</td>
+        </tr>
+        <tr id="row7" class="hid"><td>7:&nbsp;</td>
+            <td class="hits"  id="Target7"></td><td class="ttl"  id="TotalTarget7">0</td><td  class="avg" id="TotalAvg7">0</td>
+        </tr>
+        <tr id="row8" class="hid"><td>8:&nbsp;</td>
+            <td  class="hits" id="Target8"></td><td class="ttl"  id="TotalTarget8">0</td><td  class="avg" id="TotalAvg8">0</td>
+        </tr>
+        <tr id="row9" class="hid"><td>9:&nbsp;</td>
+            <td  class="hits" id="Target9"></td><td class="ttl"  id="TotalTarget9">0</td><td  class="avg" id="TotalAvg9">0</td>
+        </tr>
+        <tr id="row10" class="hid"><td>10:&nbsp;</td>
+            <td  class="hits" id="Target10"></td><td  class="ttl" id="TotalTarget10">0</td><td class="avg"  id="TotalAvg10">0</td>
+        </tr>
+        <tr id="row11" class="hid"><td>11:&nbsp;</td>
+            <td  class="hits" id="Target11"></td><td class="ttl"  id="TotalTarget11">0</td><td  class="avg" id="TotalAvg11">0</td>
+        </tr>
+        <tr id="row12" class="hid"><td>12:&nbsp;</td>
+            <td  class="hits" id="Target12"></td><td class="ttl"  id="TotalTarget12">0</td><td class="avg"  id="TotalAvg12">0</td>
+        </tr>
+        <tr id="row13" class="hid"><td>13:&nbsp;</td>
+            <td class="hits"  id="Target13"></td><td class="ttl"  id="TotalTarget13">0</td><td  class="avg" id="TotalAvg13">0</td>
+        </tr>
+        <tr id="row14" class="hid"><td>14:&nbsp;</td>
+            <td  class="hits" id="Target14"></td><td class="ttl"  id="TotalTarget14">0</td><td class="avg"  id="TotalAvg14">0</td>
+        </tr>
+        <tr id="row15" class="hid"><td>15:&nbsp;</td>
+            <td class="hits"  id="Target15"></td><td class="ttl"  id="TotalTarget15">0</td><td  class="avg" id="TotalAvg15">0</td>
+        </tr>
+        <tr id="row16" class="hid"><td>16:&nbsp;</td>
+            <td class="hits"  id="Target16"></td><td class="ttl"  id="TotalTarget16">0</td><td class="avg"  id="TotalAvg16">0</td>
+        </tr>
+        <tr id="row17" class="hid"><td>17:&nbsp;</td>
+            <td class="hits"  id="Target17"></td><td class="ttl"  id="TotalTarget17">0</td><td  class="avg" id="TotalAvg17">0</td>
+        </tr>
+        <tr id="row18" class="hid"><td>18:&nbsp;</td>
+            <td class="hits"  id="Target18"></td><td  class="ttl" id="TotalTarget18">0</td><td  class="avg" id="TotalAvg18">0</td>
+        </tr>
+        <tr id="row19" class="hid"><td>19:&nbsp;</td>
+            <td  class="hits" id="Target19"></td><td  class="ttl" id="TotalTarget19">0</td><td class="avg"  id="TotalAvg19">0</td>
+        </tr>
+        <tr id="row20" class="hid"><td>20:&nbsp;</td>
+            <td  class="hits" id="Target20"></td><td  class="ttl" id="TotalTarget20">0</td><td  class="avg" id="TotalAvg20">0</td>
+        </tr>
+        <tr id="row21" class="hid"><td>B:&nbsp;</td>
+            <td  class="hits" id="Target21"></td><td  class="ttl" id="TotalTarget21">0</td><td  class="avg" id="TotalAvg21">0</td>
+        </tr>
+       </table>
+    <br /><br />
+    <input id="Button2" type="button" value="Clear" onclick=" if (confirm('Are you sure you want to delete?')) { location.reload(); window.scrollTo(0, 0); }" />
+</body>
+</html>
