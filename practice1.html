@@ -10,6 +10,12 @@
             padding-left: 15px;
         }
 
+        .ftr {
+         color:darkgray;
+         font-style:italic;        
+         align-items:center;
+        }
+
         .hid {
             display: none;
         }
@@ -63,6 +69,7 @@
                 alert('Start and End must be between 1 and 20 or B');
             }
 
+            totHits = document.getElementById('XCount').innerHTML;
 
             var prevTargetValue = document.getElementById('currentTargetNumber').innerHTML.replace('B', '21');
            // alert(prevTargetValue);
@@ -70,7 +77,11 @@
             if (prevTargetValue != "") {
 		        var prevTargetCtrl = document.getElementById('Target' + prevTargetValue.toString());
 
-                var hits = document.getElementById('currentTargetHits').value;
+		        var hits = document.getElementById('currentTargetHits').value;
+		        totHits = parseInt(totHits) + parseInt(hits) ;  //     ;
+		        document.getElementById('XCount').innerHTML = totHits;
+		        document.getElementById('XHits').innerHTML = (3 * Round);
+		        document.getElementById('XAvg').innerHTML = ((totHits / (3.00 * Round)).toFixed(2)*100).toFixed(2) + ' %';
                 prevTargetCtrl.innerHTML += ',' + hits ;
                 var prevIdx = parseInt(document.getElementById('TotalTarget' + prevTargetValue.toString()).innerHTML);
                 document.getElementById('TotalTarget' + prevTargetValue.toString()).innerHTML = prevIdx + 1;
@@ -143,11 +154,10 @@
         Throws per round:<input id="txtThrowsPerRound" type="number" value="5" maxlength="2" style="width:30px;" /><br />
         Numbers to Practice (Start):  <input id="txtTargetNumStart" type="number" maxlength="2" value="15" style="width:30px;" /><br />
         Numbers to Practice (End):  <input id="txtTargetNumEnd" type="text" maxlength="2" value="B" style="width:30px;" /><br />
-        <input id="txtRound" type="number" readonly="readonly" value="0" style="width:30px;display:none;" />
+        <input id="txtRound" type="number" readonly="readonly" value="0" style="width:30px;display:;" />
         <br />
         <input id="Button1" type="button" value="Start" onclick="throwRound();" /><br /><br />
     </div>
-
     <table><tr style=" font-style:italic; "><td>Current Target: </td><td><div id="currentTargetNumber" style="font-size: 4.4em; color:darkgreen;"></div> </td></tr></table>
     <input id="currentTargetHits" type="number" value="0" maxlength="1" style="width:50px;font-size: 1.4em;display:none;" />
 
@@ -167,6 +177,8 @@
     </table>
     <br />
     <table>
+     
+
         <tr id="rowHdr" >
     <td class="tgt" >Target</td>
     <td class="hits" id="Target">History</td>
@@ -321,8 +333,27 @@
             <td class="cnt" id="TotalCount21">0</td>
             <td class="avg" id="TotalAvg21">0</td>
         </tr>
+  
     </table>
-    <br /><br />
+    <br />
+    <table>
+        <tr class="ftr">
+            <td>Darts</td>
+            <td>&nbsp;</td>          
+            <td>Hits</td>
+            <td>&nbsp;</td>
+            <td>Avg</td>
+        </tr>
+        <tr class="ftr">
+            <td id="XHits">0</td>
+            <td id="sedf">&nbsp;</td>          
+            <td id="XCount">0</td>
+            <td id="XTarget">&nbsp;</td>
+            <td id="XAvg">0</td>
+        </tr>
+    </table>
+    
+    <br />
     <input id="btnClear" type="button" class="hid" value="Clear" onclick=" if (confirm('Are you sure you want to delete?')) { location.reload(); window.scrollTo(0, 0); }" />
 </body>
 </html>
