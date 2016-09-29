@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+ <!DOCTYPE html>
 <html>
 <head>
     <title></title>
@@ -158,21 +158,24 @@
         <br />
         <input id="Button1" type="button" value="Start" onclick="throwRound();" /><br /><br />
     </div>
-    <table><tr style=" font-style:italic; "><td>Current Target: </td><td><div id="currentTargetNumber" style="font-size: 4.4em; color:darkgreen;"></div> </td></tr></table>
+    <table><tr style=" font-style:italic; "><td>Current Target: </td><td>
+       <div id="currentTargetNumber" style="font-size: 5.0em; color:darkgreen;"></div> </td></tr></table>
     <input id="currentTargetHits" type="number" value="0" maxlength="1" style="width:50px;font-size: 1.4em;display:none;" />
 
-     <table id="tableHits" class="hid" style="font-size: 3.0em; color:midnightblue;">
+     <table id="tableHits" class="hid" style="font-size: 4.0em; color:midnightblue;">
         <tr>
             <td onclick="loadNumber(this.innerHTML);">0</td>
-            <td style="padding-left:15px;" onclick="loadNumber(this.innerHTML);">1</td>
-            <td style="padding-left:15px;" onclick="loadNumber(this.innerHTML);">2</td>
-            <td style="padding-left:15px;" onclick="loadNumber(this.innerHTML);">3</td>
-            <td style="padding-left:15px;" onclick="loadNumber(this.innerHTML);">4</td>
-            <td style="padding-left:15px;" onclick="loadNumber(this.innerHTML);">5</td>
-            <td style="padding-left:15px;" onclick="loadNumber(this.innerHTML);">6</td>
-            <td style="padding-left:15px;" onclick="loadNumber(this.innerHTML);">7</td>
-            <td style="padding-left:15px;" onclick="loadNumber(this.innerHTML);">8</td>
-            <td style="padding-left:15px;" onclick="loadNumber(this.innerHTML);">9</td>
+            <td style="padding-left:30px;" onclick="loadNumber(this.innerHTML);">1</td>
+            <td style="padding-left:30px;" onclick="loadNumber(this.innerHTML);">2</td>
+            <td style="padding-left:30px;" onclick="loadNumber(this.innerHTML);">3</td>
+            <td style="padding-left:30px;" onclick="loadNumber(this.innerHTML);">4</td>
+         </tr>
+         <tr>
+            <td onclick="loadNumber(this.innerHTML);">5</td>
+            <td style="padding-left:30px;" onclick="loadNumber(this.innerHTML);">6</td>
+            <td style="padding-left:30px;" onclick="loadNumber(this.innerHTML);">7</td>
+            <td style="padding-left:30px;" onclick="loadNumber(this.innerHTML);">8</td>
+            <td style="padding-left:30px;" onclick="loadNumber(this.innerHTML);">9</td>
         </tr>
     </table>
     <br />
@@ -341,7 +344,7 @@
             <td>Darts</td>
             <td>&nbsp;</td>          
             <td>Hits</td>
-            <td>&nbsp;</td>
+            <td>&nbsp;</td> 
             <td>Avg</td>
         </tr>
         <tr class="ftr">
@@ -357,3 +360,4 @@
     <input id="btnClear" type="button" class="hid" value="Clear" onclick=" if (confirm('Are you sure you want to delete?')) { location.reload(); window.scrollTo(0, 0); }" />
 </body>
 </html>
+
