@@ -281,29 +281,50 @@
     </table>
     <br />
 
-    <table border="0" style="width:550px">
+    <table border="0" style="width:250px">
         <tr>
             <td id="d1_1" onclick="changebg(this.id);" class="grn">One</td>
             <td id="d1_3" onclick="changebg(this.id);" class="gry">Trip</td>
             <td id="d1_2"  onclick="changebg(this.id);" class="gry">Dbl</td>
-            <td >&nbsp;</td>
-            <td id="d2_1" onclick="changebg(this.id);" class="grn">One</td>
-            <td id="d2_3" onclick="changebg(this.id);" class="gry">Trip</td>
-            <td id="d2_2"  onclick="changebg(this.id);" class="gry">Dbl</td>
-            <td >&nbsp;</td>
-            <td id="d3_1" onclick="changebg(this.id);" class="gry">One</td>
-            <td id="d3_3" onclick="changebg(this.id);" class="gry">Trip</td>
-            <td id="d3_2"  onclick="changebg(this.id);" class="grn">Dbl</td>
+           
         </tr>
         <tr>
             <td colspan="3" class="text-center"><input id="throw1" type="number" maxlength="2" value="0" class="entry" /></td>
             <td  >&nbsp;</td><td>&nbsp;</td>
-            <td colspan="3" class="text-center"><input id="throw2" type="number" maxlength="2" value="0" class="entry" /></td>
-            <td >&nbsp;</td><td>&nbsp;</td>
-            <td colspan="3" class="text-center"><input id="throw3" type="number" maxlength="2" value="0" class="entry" /></td>
-            <td>&nbsp;</td><td>&nbsp;</td>
+            
         </tr>
-    </table> <br /><br />
+    </table> <br />
+    
+    <table border="0" style="width:250px">
+        <tr>            
+            <td id="d2_1" onclick="changebg(this.id);" class="grn">One</td>
+            <td id="d2_3" onclick="changebg(this.id);" class="gry">Trip</td>
+            <td id="d2_2" onclick="changebg(this.id);" class="gry">Dbl</td>
+           
+        </tr>
+        <tr>            
+            <td colspan="3" class="text-center"><input id="throw2" type="number" maxlength="2" value="0" class="entry" /></td>
+            <td>&nbsp;</td>
+            <td>&nbsp;</td>
+            
+        </tr>
+    </table> 
+    
+    <br />
+    <table border="0" style="width:250px">
+        <tr>
+            <td id="d3_1" onclick="changebg(this.id);" class="gry">One</td>
+            <td id="d3_3" onclick="changebg(this.id);" class="gry">Trip</td>
+            <td id="d3_2" onclick="changebg(this.id);" class="grn">Dbl</td>
+        </tr>
+        <tr>   
+            <td colspan="3" class="text-center"><input id="throw3" type="number" maxlength="2" value="0" class="entry" /></td>
+            <td>&nbsp;</td>
+            <td>&nbsp;</td>
+        </tr>
+    </table> 
+    
+    <br />
     <div style="font-size: 2.0em; color:midnightblue;"  onclick="checkEntry()" >Check Entry</div><br />
     <div id ="checkEntry" style="font-size: 2.0em; color:maroon; width:200px;" > </div><br />
     <div style="font-size: 2.0em; color:midnightblue;" onclick="XmlRead(document.getElementById('currentTargetNumber').innerHTML);">Check Best Out</div><br />
