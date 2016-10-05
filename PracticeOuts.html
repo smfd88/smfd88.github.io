@@ -1,0 +1,318 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title></title>
+    <meta charset="utf-8" />
+    <style>
+        .avg {
+            font-size: 1.5em;
+            color: maroon;
+            padding-left: 15px;
+        }
+
+        .ftr {
+         color:darkgray;
+         font-style:italic;        
+         align-items:center;
+        }
+
+        .hid {
+            display: none;
+        }
+
+        .show {
+            display:;
+        }
+
+        .ttl {
+            font-size: 1.2em;
+            color: navy;
+            padding-left: 15px;
+            display: none;
+        }
+
+         .tgt {
+            font-size: 1.2em;
+            color: Red; 
+        }
+        
+         .cnt {
+            font-size: 1.2em;
+            color:darkorchid;
+            padding-left: 15px;
+        }
+
+        .hits {
+            font-size: 1.2em;
+            color: green;
+            padding-left: 15px;
+        }
+
+        .entry {
+            font-size: 1.3em;
+            height: 45px;
+            width: 85px;
+        
+        }
+
+        .text-center {
+            font-size: 1.9em;
+            text-align: center;
+        }
+
+        .grn {
+           background-color:forestgreen;     
+               font-size: 1.9em;
+            text-align: center;
+        }
+
+        .gry {
+            background-color:gray;   
+                font-size: 1.9em;
+            text-align: center;
+        }
+
+        #btnClear {
+            height: 45px;
+            width: 105px;
+        }
+    </style>
+    <script>
+
+        function removeBgColor(itm) {
+            document.getElementById(itm).style.backgroundColor = 'white';
+        }
+
+        function XmlRead(searchval) {
+            document.getElementById('bestOut').innerHTML = '';
+            var request = new XMLHttpRequest();
+            request.open("GET", "AllOuts.xml", false);
+            request.send();
+            var xml = request.responseXML;
+            var outs = xml.getElementsByTagName("Out");
+            for (var i = 0; i < outs.length; i++) { //
+                var out = outs[i];
+                var number = out.getElementsByTagName("Number");
+                for (var j = 0; j < number.length; j++) {
+                    if (number[j].childNodes[0].nodeValue == searchval) {
+                        var out3 = "";
+                        var out2 = "";
+                        var comments = "";
+                        try { out3 = out.getElementsByTagName("ThreeDartOut")[0].childNodes[0].nodeValue; } catch (err) { }
+                        try { out2 = out.getElementsByTagName("TwoDartOut")[0].childNodes[0].nodeValue; } catch (err) { }
+                        try { comments = out.getElementsByTagName("Comments")[0].childNodes[0].nodeValue; } catch (err) { }
+
+                        document.getElementById('bestOut').innerHTML = (out3 + '  <br/>' + out2 + ' <br/>' + comments);
+                        document.getElementById('bestOut').style.backgroundColor = 'aqua';
+                        var to = setTimeout(function () { removeBgColor('bestOut'); } , 1000);
+
+                    }
+                }
+            }
+        }
+
+
+        function checkEntry() {
+            document.getElementById('checkEntry').innerHTML = '';
+            ttl = 0;
+            d1=0;
+            d2=0;
+
+           // var dd = thisid.substring(0, 3);
+
+            for ( a= 1; a<= 3; a++) {
+                var ddl = 'throw' + a.toString();
+                
+                if (document.getElementById(ddl).value != '0')
+                {
+                    for ( b = 1; b <= 3; b++) {
+                        var clr = 'd'+a.toString()+'_' + b.toString();
+                        if (document.getElementById(clr).className == 'grn')
+                        {
+                            ttl = ttl  + (parseInt(document.getElementById(ddl).value) * b);
+                            
+                        } //grn
+                    } //for b                    
+                }  // !=0              
+            }//for a
+
+            if (ttl == document.getElementById('currentTargetNumber').innerHTML)
+            {
+                ttl = ttl + '  Got it!';
+            }
+ 
+            document.getElementById('checkEntry').innerHTML = ttl;
+            document.getElementById('checkEntry').style.backgroundColor = 'aqua';
+            var to = setTimeout(function () { removeBgColor('checkEntry'); }, 1000);
+        
+        }
+
+        function throwRound() {
+            document.getElementById('throw1').value = '0';
+            document.getElementById('throw2').value = '0';
+            document.getElementById('throw3').value = '0';
+
+            document.getElementById('bestOut').innerHTML = '';
+            document.getElementById('checkEntry').innerHTML = '';
+
+            var ThrowsPerRound = parseInt(document.getElementById('txtThrowsPerRound').value);
+            var TargetNumStart = parseInt(document.getElementById('txtTargetNumStart').value.replace('B','21'));
+            var TargetNumEnd = parseInt(document.getElementById('txtTargetNumEnd').value.replace('B', '21'));
+            var ctrlRound = document.getElementById('txtRound');
+            var Round = parseInt(ctrlRound.value);
+
+
+            if (TargetNumStart > 171 || TargetNumStart < 3 || TargetNumEnd > 171 || TargetNumEnd < 3 || TargetNumEnd < TargetNumStart)
+            {
+                alert('Start and End must be between 3 and 171');
+            }
+
+
+             
+
+            var prevTargetValue = document.getElementById('currentTargetNumber').innerHTML;
+
+
+
+
+            boolTargetOK = 0;
+      
+            do {
+                min = Math.ceil(TargetNumEnd);
+                max = Math.floor(TargetNumStart);
+                rdm = Math.random();
+                var randTargetNumber = Math.floor(rdm * (max - (min + 1))) + (min + 1);
+                //    var curTargetValue = document.getElementById('Target' + randTargetNumber.toString()).innerHTML;
+                //   var curTotalTarget = parseInt(document.getElementById('TotalTarget' + randTargetNumber.toString()).innerHTML);
+                if (TargetNumStart <= randTargetNumber && randTargetNumber <= TargetNumEnd) {
+                    boolTargetOK = 1;
+                } 
+                      
+                easyOuts = '|2|3|4|5|6|8|10|12|14|16|18|20|22|24|26|28|30|32|34|36|38|40|'; 
+ 
+                if (easyOuts.indexOf(randTargetNumber) > 0 )
+                {
+                    boolTargetOK = 0;                     
+                }                 
+
+            }
+            while (boolTargetOK < 1);
+             
+
+            if (prevTargetValue != "") {
+
+                /*
+		      
+                */
+
+            } else {
+                document.getElementById('tableHits').className = "show";
+              
+                document.getElementById('Button1').className = "hid";
+                document.getElementById('btnClear').className = "show";
+                document.getElementById('divHeaderMenu').className = "hid";
+                
+            }
+
+
+
+
+            if (boolTargetOK < 2) {
+                document.getElementById('currentTargetNumber').innerHTML = randTargetNumber.toString();
+                ctrlRound.value = parseInt(ctrlRound.value) + 1;
+            } else {
+                alert('done');
+            }
+        }
+
+        function loadNumber(v) {
+                // alert(v);
+  
+            document.getElementById('throw1').value = '0';
+            document.getElementById('throw2').value = '0';
+            document.getElementById('throw3').value = '0';
+                Button1.click();
+            }
+
+
+        function changebg(thisid)
+            {
+                var clickedItem = document.getElementById(thisid); //.className;
+                var startColor = clickedItem.className;
+                var newColor = "";
+                var othColor = "gry";
+
+                if (startColor.indexOf('gry') > -1) { newColor = 'grn';  }
+                if (startColor.indexOf('grn') > -1) { newColor = 'gry';  }  
+
+                clickedItem.className = newColor;
+                var dd = thisid.substring(0, 3);
+
+                for (var q = 1; q <= 3; q++)
+                {
+                    var ddl = dd + q.toString();
+                    if (thisid != ddl) {
+                        document.getElementById(ddl).className = othColor;
+                    }
+                }
+
+        
+            }
+
+    </script>
+</head>
+<body>
+    <div id="divHeaderMenu">
+        Rounds:<input id="txtThrowsPerRound" type="number" value="5" maxlength="2" style="width:30px;" /><br />
+        Numbers to Practice (Start):  <input id="txtTargetNumStart" type="number" maxlength="2" value="21" style="width:30px;" /><br />
+        Numbers to Practice (End):  <input id="txtTargetNumEnd" type="number" maxlength="3" value="60" style="width:30px;" /><br />
+        <input id="txtRound" type="number" readonly="readonly" value="0" style="width:30px;display:;" />
+        <br />
+        <input id="Button1" type="button" value="Start" onclick="throwRound();" /><br /><br />
+    </div>
+ 
+ 
+
+     <table id="tableHits" class="hid" style="font-size: 4.0em; color:midnightblue;">
+        <tr>
+            <td onclick="throwRound();">OUT</td>  <td>&nbsp;&nbsp;&nbsp;&nbsp;</td>          
+            <td><div id="currentTargetNumber"  style="font-size: 2.0em; color:darkgreen;"></div></td>
+        </tr>
+    </table>
+    <br />
+
+    <table border="0" style="width:550px">
+        <tr>
+            <td id="d1_1" onclick="changebg(this.id);" class="grn">One</td>
+            <td id="d1_3" onclick="changebg(this.id);" class="gry">Trip</td>
+            <td id="d1_2"  onclick="changebg(this.id);" class="gry">Dbl</td>
+            <td >&nbsp;</td>
+            <td id="d2_1" onclick="changebg(this.id);" class="grn">One</td>
+            <td id="d2_3" onclick="changebg(this.id);" class="gry">Trip</td>
+            <td id="d2_2"  onclick="changebg(this.id);" class="gry">Dbl</td>
+            <td >&nbsp;</td>
+            <td id="d3_1" onclick="changebg(this.id);" class="gry">One</td>
+            <td id="d3_3" onclick="changebg(this.id);" class="gry">Trip</td>
+            <td id="d3_2"  onclick="changebg(this.id);" class="grn">Dbl</td>
+        </tr>
+        <tr>
+            <td colspan="3" class="text-center"><input id="throw1" type="number" maxlength="2" value="0" class="entry" /></td>
+            <td  >&nbsp;</td><td>&nbsp;</td>
+            <td colspan="3" class="text-center"><input id="throw2" type="number" maxlength="2" value="0" class="entry" /></td>
+            <td >&nbsp;</td><td>&nbsp;</td>
+            <td colspan="3" class="text-center"><input id="throw3" type="number" maxlength="2" value="0" class="entry" /></td>
+            <td>&nbsp;</td><td>&nbsp;</td>
+        </tr>
+    </table> <br /><br />
+    <div style="font-size: 2.0em; color:midnightblue;"  onclick="checkEntry()" >Check Entry</div><br />
+    <div id ="checkEntry" style="font-size: 2.0em; color:maroon; width:200px;" > </div><br />
+    <div style="font-size: 2.0em; color:midnightblue;" onclick="XmlRead(document.getElementById('currentTargetNumber').innerHTML);">Check Best Out</div><br />
+    <div id="bestOut" style="font-size: 2.0em; color:maroon; width:400px;"> </div>
+    <br /><br />
+   
+ 
+
+    <br />
+    <input id="btnClear" type="button" class="hid" value="Clear" onclick=" if (confirm('Are you sure you want to delete?')) { location.reload(); window.scrollTo(0, 0); }" />
+</body>
+</html>
