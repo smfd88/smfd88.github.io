@@ -76,8 +76,62 @@
             height: 45px;
             width: 105px;
         }
+
+.main-wrap {
+  position: absolute;
+  top: 15%;
+  left: 50%;
+  width: 500px;
+  height: 500px;
+  margin: -100px 0 0 -100px;
+  
+    
+}
+
+        .inp {
+        width:46px;height:20px;font-size:18pt;
+        
+        }
+
     </style>
+
+
     <script>
+         
+        function addhotels() {
+            var xml;
+            //if (window.ActiveXObject) {
+            //    xml = new ActiveXObject("Microsoft.XMLHTTP");
+            //} else {
+                 xml = new XMLHttpRequest();
+            //}
+            xml.onreadystatechange = function () {
+                if (xml.readyState == 4 && xml.status == 200) {
+                    var resp = xml.responseXML;
+                    var hotel = xml.responseXML.createElement("hit");
+
+                    var supplier = xml.responseXML.createElement("date");
+                    supplier.appendChild(xml.responseXML
+                            .createTextNode("10/5/2016"));
+
+                    var contact = xml.responseXML.createElement("number");
+                    contact.appendChild(xml.responseXML.createTextNode("15"));
+
+                    var tel = xml.responseXML.createElement("count");
+                    tel.appendChild(xml.responseXML.createTextNode("5"));
+
+                    hotel.appendChild(supplier);
+                    hotel.appendChild(contact);
+                    hotel.appendChild(tel);
+                    xml.responseXML.documentElement.appendChild(hotel);
+                     
+                   // var outs = xml.getElementsByTagName("hits");
+
+                }
+            }
+            xml.open("GET", "Hits.xml", false);
+            xml.send(null);
+        }
 
         function removeBgColor(itm) {
             document.getElementById(itm).style.backgroundColor = 'white';
@@ -136,9 +190,10 @@
                 }  // !=0              
             }//for a
 
-            if (ttl == document.getElementById('currentTargetNumber').innerHTML)
-            {
+            if (ttl == document.getElementById('currentTargetNumber').innerHTML) {
                 ttl = ttl + '  Got it!';
+            } else {
+                ttl = ttl + '  try again';
             }
  
             document.getElementById('checkEntry').innerHTML = ttl;
@@ -154,8 +209,7 @@
 
             document.getElementById('bestOut').innerHTML = '';
             document.getElementById('checkEntry').innerHTML = '';
-
-            var ThrowsPerRound = parseInt(document.getElementById('txtThrowsPerRound').value);
+         
             var TargetNumStart = parseInt(document.getElementById('txtTargetNumStart').value.replace('B','21'));
             var TargetNumEnd = parseInt(document.getElementById('txtTargetNumEnd').value.replace('B', '21'));
             var ctrlRound = document.getElementById('txtRound');
@@ -260,80 +314,86 @@
             }
 
     </script>
+
 </head>
 <body>
-    <div id="divHeaderMenu">
-        Rounds:<input id="txtThrowsPerRound" type="number" value="5" maxlength="2" style="width:30px;" /><br />
-        Numbers to Practice (Start):  <input id="txtTargetNumStart" type="number" maxlength="2" value="21" style="width:30px;" /><br />
-        Numbers to Practice (End):  <input id="txtTargetNumEnd" type="number" maxlength="3" value="60" style="width:30px;" /><br />
-        <input id="txtRound" type="number" readonly="readonly" value="0" style="width:30px;display:;" />
+
+    <div class="main-wrap">
+        <div id="divHeaderMenu" style="font-size:1.8em;">
+             
+            Practice (Start #):  <input id="txtTargetNumStart" type="number" maxlength="2" value="56" class="inp" /><br />
+            Practice (End #):  <input id="txtTargetNumEnd" type="number" maxlength="3" value="72" class="inp" /><br />
+            <input id="txtRound" type="number" readonly="readonly" value="0" style="width:30px;display:none;" />
+           
+            <input id="Button1" type="button" value="Start" onclick="throwRound();" style="height:40px;width:75px;" /><br /><br />
+        </div>
+
+
+
+        <table id="tableHits" class="hid" style="font-size: 4.0em; color:midnightblue;">
+            <tr>
+                <td onclick="throwRound();">OUT</td>
+                <td>&nbsp;&nbsp;&nbsp;&nbsp;</td>
+                <td><div id="currentTargetNumber" style="font-size: 1.4em; color:darkgreen;"></div></td>
+            </tr>
+        </table>
         <br />
-        <input id="Button1" type="button" value="Start" onclick="throwRound();" /><br /><br />
+
+        <table border="0" style="width:250px">
+            <tr>
+                <td id="d1_1" onclick="changebg(this.id);" class="grn">One</td>
+                <td id="d1_3" onclick="changebg(this.id);" class="gry">Trip</td>
+                <td id="d1_2" onclick="changebg(this.id);" class="gry">Dbl</td>
+
+            </tr>
+            <tr>
+                <td colspan="3" class="text-center"><input id="throw1" type="number" maxlength="2" value="0" class="entry" /></td>
+                <td>&nbsp;</td>
+                <td>&nbsp;</td>
+
+            </tr>
+        </table> <br />
+
+        <table border="0" style="width:250px">
+            <tr>
+                <td id="d2_1" onclick="changebg(this.id);" class="grn">One</td>
+                <td id="d2_3" onclick="changebg(this.id);" class="gry">Trip</td>
+                <td id="d2_2" onclick="changebg(this.id);" class="gry">Dbl</td>
+
+            </tr>
+            <tr>
+                <td colspan="3" class="text-center"><input id="throw2" type="number" maxlength="2" value="0" class="entry" /></td>
+                <td>&nbsp;</td>
+                <td>&nbsp;</td>
+
+            </tr>
+        </table>
+
+        <br />
+        <table border="0" style="width:250px">
+            <tr>
+                <td id="d3_1" onclick="changebg(this.id);" class="gry">One</td>
+                <td id="d3_3" onclick="changebg(this.id);" class="gry">Trip</td>
+                <td id="d3_2" onclick="changebg(this.id);" class="grn">Dbl</td>
+            </tr>
+            <tr>
+                <td colspan="3" class="text-center"><input id="throw3" type="number" maxlength="2" value="0" class="entry" /></td>
+                <td>&nbsp;</td>
+                <td>&nbsp;</td>
+            </tr>
+        </table>
+
+        <br />
+        <div style="font-size: 2.0em; color:midnightblue;" onclick="checkEntry()">Check Entry</div><br />
+        <div id="checkEntry" style="font-size: 2.0em; color:maroon; width:200px;"> </div><br />
+        <div style="font-size: 2.0em; color:midnightblue;" onclick="XmlRead(document.getElementById('currentTargetNumber').innerHTML);">Check Best Out</div><br />
+        <div id="bestOut" style="font-size: 2.0em; color:maroon; width:400px;"> </div>
+        <br /><br />
+
+
+
+        <br />
+        <input id="btnClear" type="button" class="hid" value="Clear" onclick=" if (confirm('Are you sure you want to delete?')) { location.reload(); window.scrollTo(0, 0); }" />
     </div>
- 
- 
-
-     <table id="tableHits" class="hid" style="font-size: 4.0em; color:midnightblue;">
-        <tr>
-            <td onclick="throwRound();">OUT</td>  <td>&nbsp;&nbsp;&nbsp;&nbsp;</td>          
-            <td><div id="currentTargetNumber"  style="font-size: 2.0em; color:darkgreen;"></div></td>
-        </tr>
-    </table>
-    <br />
-
-    <table border="0" style="width:250px">
-        <tr>
-            <td id="d1_1" onclick="changebg(this.id);" class="grn">One</td>
-            <td id="d1_3" onclick="changebg(this.id);" class="gry">Trip</td>
-            <td id="d1_2"  onclick="changebg(this.id);" class="gry">Dbl</td>
-           
-        </tr>
-        <tr>
-            <td colspan="3" class="text-center"><input id="throw1" type="number" maxlength="2" value="0" class="entry" /></td>
-            <td  >&nbsp;</td><td>&nbsp;</td>
-            
-        </tr>
-    </table> <br />
-    
-    <table border="0" style="width:250px">
-        <tr>            
-            <td id="d2_1" onclick="changebg(this.id);" class="grn">One</td>
-            <td id="d2_3" onclick="changebg(this.id);" class="gry">Trip</td>
-            <td id="d2_2" onclick="changebg(this.id);" class="gry">Dbl</td>
-           
-        </tr>
-        <tr>            
-            <td colspan="3" class="text-center"><input id="throw2" type="number" maxlength="2" value="0" class="entry" /></td>
-            <td>&nbsp;</td>
-            <td>&nbsp;</td>
-            
-        </tr>
-    </table> 
-    
-    <br />
-    <table border="0" style="width:250px">
-        <tr>
-            <td id="d3_1" onclick="changebg(this.id);" class="gry">One</td>
-            <td id="d3_3" onclick="changebg(this.id);" class="gry">Trip</td>
-            <td id="d3_2" onclick="changebg(this.id);" class="grn">Dbl</td>
-        </tr>
-        <tr>   
-            <td colspan="3" class="text-center"><input id="throw3" type="number" maxlength="2" value="0" class="entry" /></td>
-            <td>&nbsp;</td>
-            <td>&nbsp;</td>
-        </tr>
-    </table> 
-    
-    <br />
-    <div style="font-size: 2.0em; color:midnightblue;"  onclick="checkEntry()" >Check Entry</div><br />
-    <div id ="checkEntry" style="font-size: 2.0em; color:maroon; width:200px;" > </div><br />
-    <div style="font-size: 2.0em; color:midnightblue;" onclick="XmlRead(document.getElementById('currentTargetNumber').innerHTML);">Check Best Out</div><br />
-    <div id="bestOut" style="font-size: 2.0em; color:maroon; width:400px;"> </div>
-    <br /><br />
-   
- 
-
-    <br />
-    <input id="btnClear" type="button" class="hid" value="Clear" onclick=" if (confirm('Are you sure you want to delete?')) { location.reload(); window.scrollTo(0, 0); }" />
 </body>
 </html>
