@@ -77,13 +77,14 @@ a = 'client';
 e = document.documentElement || document.body;
 }
 //return { width : e[ a+'Width' ] , height : e[ a+'Height' ] }
-alert(e[ a+'Width' ]);
+alert(e[ a+'Width' ] + 'X' +  e[ a+'Height' ]);
 }
 //-->
 </script>
 	
     <script>
 window.onload = viewport;
+	    
         function throwRound() {
 
             var ThrowsPerRound = parseInt(document.getElementById('txtThrowsPerRound').value);
