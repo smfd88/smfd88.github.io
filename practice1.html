@@ -65,8 +65,25 @@
     
 }
     </style>
+	<script type="text/javascript">
+<!--
+function viewport()
+{
+var e = window
+, a = 'inner';
+if ( !( 'innerWidth' in window ) )
+{
+a = 'client';
+e = document.documentElement || document.body;
+}
+//return { width : e[ a+'Width' ] , height : e[ a+'Height' ] }
+alert(e[ a+'Width' ]);
+}
+//-->
+</script>
+	
     <script>
-
+window.onload = viewport;
         function throwRound() {
 
             var ThrowsPerRound = parseInt(document.getElementById('txtThrowsPerRound').value);
