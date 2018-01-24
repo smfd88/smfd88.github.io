@@ -52,7 +52,12 @@
             height: 45px;
             width: 105px;
         }
-
+	    
+   	#tableHits {
+       font-size: 500%; 
+	color:midnightblue; 
+	width:100%; 
+        }
 
         .main-wrap {
   position: absolute;
@@ -209,7 +214,7 @@ window.onload = viewport;
     </table>
     <input id="currentTargetHits" type="number" value="0" maxlength="1" style="width:50px;font-size: 1.8em;display:none;" />
 
-    <table id="tableHits" class="hid" style="font-size: 600%; color:midnightblue;">
+    <table id="tableHits" class="hid"  >
         <tr>
             <td onclick="loadNumber(this.innerHTML);">0</td>
             <td style="padding-left:30px;" onclick="loadNumber(this.innerHTML);">1</td>
